@@ -3,11 +3,17 @@
 nav {
   background-color: white;
   height: 100px;
+  padding: 0 40px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.nav-content-container {
+  max-width: 70rem;
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 40px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  height: 100%;
 }
 
 .logo-container {
@@ -29,7 +35,6 @@ nav {
 @media screen and (min-width: 768px) {
   nav {
     height: 120px;
-    padding: 0 10vw;
   }
   .logo-container {
     padding-top: 0px;
@@ -48,12 +53,5 @@ nav {
   }
   .mobile-menu {
     display: none;
-  }
-}
-
-/* -- DESKTOP LARGE -- */
-@media screen and (min-width: 1900px) {
-  nav {
-    padding: 0 15vw;
   }
 }
