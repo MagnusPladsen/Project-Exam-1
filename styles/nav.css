@@ -1,0 +1,59 @@
+/* ---- NAV ---- */
+
+nav {
+  background-color: white;
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.logo-container {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  padding-top: 10px;
+}
+
+.desktop-menu {
+  display: none;
+}
+
+/* -- DESKTOP SMALL -- */
+@media screen and (min-width: 768px) {
+  nav {
+    height: 120px;
+    padding: 0 10vw;
+  }
+  .logo-container {
+    padding-top: 0px;
+  }
+  .desktop-menu {
+    display: block;
+  }
+  .menu-list {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-size: 1.2rem;
+    color: var(--primary-color);
+  }
+  .mobile-menu {
+    display: none;
+  }
+}
+
+/* -- DESKTOP LARGE -- */
+@media screen and (min-width: 1900px) {
+  nav {
+    padding: 0 15vw;
+  }
+}
