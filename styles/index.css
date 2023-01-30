@@ -28,9 +28,68 @@
   margin: 0;
 }
 
+.posts-container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.post-container {
+  background-color: white;
+  /* box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); */
+  background-color: white;
+  border-radius: 20px;
+  max-width: 350px;
+  height: 300px;
+  position: relative;
+  margin-bottom: 50px;
+}
+
+.post-title {
+  position: absolute;
+  width: 100%;
+  background-color: white;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 25px;
+  color: var(--secondary-color);
+  padding: 25px 0 10px 0;
+  margin: 0;
+  text-align: center;
+  border-radius: 20px 20px 0 0;
+}
+
+.post-img {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+  height: 100%;
+}
+
+.post-date {
+  position: absolute;
+  bottom: 0px;
+  left: 20px;
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  color: white;
+}
+
 /* -- DESKTOP -- */
 @media screen and (min-width: 768px) {
   .hero {
     height: calc(100vh - 120px);
+  }
+  .posts-container {
+    flex-direction: row;
+    width: fit-content;
+    border: 1px solid red;
+  }
+  .carousel {
+    overflow-x: scroll;
+  }
+  .post-container {
+    width: 500px;
+    height: 450px;
   }
 }

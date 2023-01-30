@@ -64,53 +64,6 @@ h1 {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
 }
 
-.posts-container {
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-}
-
-.post-container {
-  background-color: white;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-  background-color: white;
-  border-radius: 20px;
-  max-width: 350px;
-  height: 300px;
-  position: relative;
-  margin-bottom: 50px;
-}
-
-.post-title {
-  position: absolute;
-  width: 100%;
-  background-color: white;
-  font-family: "Roboto", sans-serif;
-  font-weight: 500;
-  font-size: 25px;
-  color: var(--secondary-color);
-  padding: 25px 0 10px 0;
-  margin: 0;
-  text-align: center;
-  border-radius: 20px 20px 0 0;
-}
-
-.post-img {
-  width: 100%;
-  object-fit: cover;
-  border-radius: 20px;
-  height: 100%;
-}
-
-.post-date {
-  position: absolute;
-  bottom: 10px;
-  left: 20px;
-  font-family: "Roboto", sans-serif;
-  font-size: 18px;
-  color: white;
-}
-
 section button {
   margin: 0 auto;
   display: block;
