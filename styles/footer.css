@@ -1,0 +1,31 @@
+/* ---- FOOTER ---- */
+
+footer {
+  padding: 50px 40px;
+  background-color: white;
+}
+
+.footer-content {
+  max-width: 70rem;
+  margin: 0 auto;
+}
+
+.footer-header {
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--secondary-color);
+    width: fit-content;
+    padding-bottom: 5px;
+}
+
+.footer-text {
+    font-size: 18px;
+    color: var(--primary-color);
+}
+
+.footer-text p {
+    margin: 4px 0;
+}
