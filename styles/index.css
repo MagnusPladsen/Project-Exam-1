@@ -15,27 +15,17 @@
 }
 
 .hero-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
 }
 
 .hero-heading {
-    font-family: "Roboto", sans-serif;
-    font-weight: 700;
-    font-size: clamp(3rem, 7vw, 10rem);
-    margin: 0;
-}
-
-.hero-button {
-    background-color: white;
-    color: var(--secondary-color);
-    padding: 15px 30px;
-    border-radius: 40px;
-    font-family: "Roboto", sans-serif;
-    font-weight: 500;
-    font-size: 1.2rem;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-size: clamp(3rem, 7vw, 10rem);
+  margin: 0;
 }
 
 /* -- DESKTOP -- */
