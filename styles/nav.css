@@ -31,6 +31,16 @@ nav {
   display: none;
 }
 
+.mobile-dropdown {
+    position: absolute;
+    top: 100px;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    z-index: 1;
+}
+
 /* -- DESKTOP SMALL -- */
 @media screen and (min-width: 768px) {
   nav {
