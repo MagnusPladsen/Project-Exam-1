@@ -10,7 +10,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  color: #fff;
+  color: white;
   text-align: center;
 }
 
@@ -36,13 +36,11 @@
 
 .post-container {
   background-color: white;
-  /* box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); */
-  background-color: white;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
   border-radius: 20px;
   max-width: 350px;
   height: 300px;
   position: relative;
-  margin-bottom: 50px;
 }
 
 .post-title {
@@ -75,6 +73,10 @@
   color: white;
 }
 
+.carousel {
+  margin-bottom: 50px;
+}
+
 /* -- DESKTOP -- */
 @media screen and (min-width: 768px) {
   .hero {
@@ -83,13 +85,14 @@
   .posts-container {
     flex-direction: row;
     width: fit-content;
-    border: 1px solid red;
+    margin-bottom: 20px;
   }
   .carousel {
     overflow-x: scroll;
+    padding: 10px;
   }
   .post-container {
-    width: 500px;
-    height: 450px;
+    width: 350px;
+    height: 300px;
   }
 }

@@ -32,13 +32,43 @@ nav {
 }
 
 .mobile-dropdown {
-    position: absolute;
-    top: 100px;
-    left: 0;
-    width: 100%;
-    background-color: white;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-    z-index: 1;
+  position: absolute;
+  top: 100px;
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 104px);
+  border-top: 2px solid var(--primary-color);
+  border-bottom: 2px solid var(--primary-color);
+  background-color: #f2f2f2;
+  z-index: 1;
+}
+
+.hidden {
+  display: none;
+}
+
+.menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+  padding-top: 20vh;
+  padding-left: 0;
+  list-style: none;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 1.2rem;
+  color: var(--primary-color);
+}
+
+.menu-list li {
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.nav-active {
+  color: var(--secondary-color);
+  border-bottom: 2px solid var(--secondary-color);
+  padding-bottom: 5px;
 }
 
 /* -- DESKTOP SMALL -- */
@@ -52,16 +82,12 @@ nav {
   .desktop-menu {
     display: block;
   }
-  .menu-list {
-    display: flex;
-    gap: 40px;
-    list-style: none;
-    font-family: "Roboto", sans-serif;
-    font-weight: 500;
-    font-size: 1.2rem;
-    color: var(--primary-color);
-  }
   .mobile-menu {
     display: none;
+  }
+  .menu-list {
+    flex-direction: row;
+    gap: 40px;
+    padding: 0;
   }
 }
