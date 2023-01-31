@@ -65,7 +65,16 @@ h1 {
   font-family: "Roboto", sans-serif;
   font-weight: 500;
   font-size: 1.2rem;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+  scale: 1;
+  transition: all 0.2s ease-in-out;
+}
+
+.cta:hover {
+  background-color: var(--secondary-color);
+  color: white;
+  scale: 1.1;
+  transition: all 0.2s ease-in-out;
 }
 
 section button {

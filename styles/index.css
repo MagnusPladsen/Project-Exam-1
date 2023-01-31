@@ -38,6 +38,8 @@
   max-width: 350px;
   height: 400px;
   position: relative;
+  scale: 1;
+  transition: all 0.2s ease-in-out;
 }
 
 .post-container:hover {
