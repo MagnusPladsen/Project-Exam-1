@@ -51,7 +51,7 @@ nav {
   display: flex;
   flex-direction: column;
   gap: 80px;
-  padding-top: 20vh;
+  padding-top: 15vh;
   padding-left: 0;
   list-style: none;
   font-family: "Roboto", sans-serif;
