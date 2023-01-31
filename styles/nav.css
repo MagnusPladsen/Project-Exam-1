@@ -16,17 +16,6 @@ nav {
   height: 100%;
 }
 
-.logo-container {
-  display: flex;
-  align-items: baseline;
-  gap: 10px;
-  font-family: "Roboto", sans-serif;
-  font-weight: 500;
-  font-size: 1.5rem;
-  color: var(--primary-color);
-  padding-top: 10px;
-}
-
 .desktop-menu {
   display: none;
 }
@@ -75,9 +64,6 @@ nav {
 @media screen and (min-width: 768px) {
   nav {
     height: 120px;
-  }
-  .logo-container {
-    padding-top: 0px;
   }
   .desktop-menu {
     display: block;

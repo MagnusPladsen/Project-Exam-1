@@ -30,14 +30,6 @@ button {
   outline: inherit;
 }
 
-.bold {
-  font-weight: 700;
-}
-
-.underline {
-  border-bottom: 2px solid var(--secondary-color);
-}
-
 main {
   background-color: white;
 }
@@ -48,6 +40,11 @@ section {
   margin: 0 auto;
 }
 
+section button {
+  margin: 0 auto;
+  display: block;
+}
+
 h1 {
   font-weight: 500;
   font-size: 40px;
@@ -55,6 +52,14 @@ h1 {
   color: var(--secondary-color);
   text-align: left;
   margin-bottom: 50px;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.underline {
+  border-bottom: 2px solid var(--secondary-color);
 }
 
 .cta {
@@ -77,11 +82,24 @@ h1 {
   transition: all 0.2s ease-in-out;
 }
 
-section button {
-  margin: 0 auto;
-  display: block;
+.logo-container {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding-top: 10px;
+}
+
+.logo-text {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 1.5rem;
+  color: var(--primary-color);
+
 }
 
 /* -- DESKTOP -- */
 @media screen and (min-width: 768px) {
+  .logo-container {
+    padding-top: 0px;
+  }
 }
