@@ -3,7 +3,17 @@ const url = "https://travela.magnuspladsen.no/wp-json/wp/v2/posts?_embed";
 const postsContainer = document.querySelector(".posts-container");
 
 function dateFormatter(string) {
-    return string.substring(0, 10);
+  return string.substring(0, 10);
+}
+
+function getShortText(string) {
+  const newString = removeTags(string);
+  return newString.substring(0, 75) + "...";
+}
+
+// removes the <p> tags from the excerpt
+function removeTags(string) {
+  return string.substring(3, string.length - 5);
 }
 
 
@@ -29,16 +39,27 @@ function displayPosts(posts) {
   for (let i = 0; i < 4; i++) {
     const post = posts[i];
     postsContainer.innerHTML += `
-          <div class="post-container">
-          <h2 class="post-title">${post.title.rendered}</h2>
+    <a href="post.html?id=${post.id}" class="post-link">
+      <div class="post-container">
+
+        <img
+          class="post-img"
+          src="${
+            post._embedded["wp:featuredmedia"][0].media_details.sizes.medium
+              .source_url
+          }"
+          alt="image of Bali"
+        />
+        <h2 class="post-title">${post.title.rendered}</h2>
+        <div class="post-info-container">
+          <p class="post-author">By ${post._embedded.author[0].name}</p><p>-</p>
           <p class="post-date">${dateFormatter(post.date)}</p>
-          <img
-            class="post-img"
-            src="${post._embedded["wp:featuredmedia"][0].media_details.sizes.medium.source_url}"
-            alt="image of Bali"
-          />
+          <p>-</p>
+          <p class="post-category">${post._embedded["wp:term"][0][0].name}</p>
         </div>
-          `;
+        <p class="post-text">${getShortText(post.excerpt.rendered)}</p>
+      </div>
+    </a>`;
   }
 }
 
