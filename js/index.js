@@ -58,6 +58,7 @@ function displayPosts(posts) {
           <p class="post-category">${post._embedded["wp:term"][0][0].name}</p>
         </div>
         <p class="post-text">${getShortText(post.excerpt.rendered)}</p>
+        <p class="posts-readmore">Click to read more</p>
       </div>
     </a>`;
   }
