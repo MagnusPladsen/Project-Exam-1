@@ -8,14 +8,13 @@ function dateFormatter(string) {
 
 function getShortText(string) {
   const newString = removeTags(string);
-  return newString.substring(0, 75) + "...";
+  return newString.substring(0, 110) + "...";
 }
 
 // removes the <p> tags from the excerpt
 function removeTags(string) {
   return string.substring(3, string.length - 5);
 }
-
 
 // set up loading message in case of slow connection
 postsContainer.innerHTML = "Loading...";
@@ -50,15 +49,17 @@ function displayPosts(posts) {
           }"
           alt="image of Bali"
         />
-        <h2 class="post-title">${post.title.rendered}</h2>
-        <div class="post-info-container">
-          <p class="post-author">By ${post._embedded.author[0].name}</p><p>-</p>
-          <p class="post-date">${dateFormatter(post.date)}</p>
-          <p>-</p>
-          <p class="post-category">${post._embedded["wp:term"][0][0].name}</p>
+        <div class="post-all-text-container">
+          <h2 class="post-title">${post.title.rendered}</h2>
+          <div class="post-info-container">
+            <p class="post-author">By ${post._embedded.author[0].name}</p><p>-</p>
+            <p class="post-date">${dateFormatter(post.date)}</p>
+            <p>-</p>
+            <p class="post-category">${post._embedded["wp:term"][0][0].name}</p>
+          </div>
+          <p class="post-text">${getShortText(post.excerpt.rendered)}</p>
+          <p class="posts-readmore">Click to read more</p>
         </div>
-        <p class="post-text">${getShortText(post.excerpt.rendered)}</p>
-        <p class="posts-readmore">Click to read more</p>
       </div>
     </a>`;
   }

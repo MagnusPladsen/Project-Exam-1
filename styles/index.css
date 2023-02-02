@@ -39,12 +39,12 @@
 .posts-container {
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 60px;
 }
 
 .post-container {
   max-width: 350px;
-  height: 400px;
+  height: 350px;
   position: relative;
   scale: 1;
   transition: all 0.2s ease-in-out;
@@ -62,18 +62,18 @@
   color: var(--secondary-color);
   text-align: left;
   margin-bottom: 0;
-  margin-top: 10px;
+  margin-top: 5px;
 }
 
 .post-img {
   width: 100%;
   object-fit: cover;
   border-radius: 5px;
-  height: 60%;
+  height: 50%;
 }
 
 .post-text {
-  margin: 0;
+  margin: 10px 0 5px 0;
   color: black;
   font-weight: 500;
 }
@@ -81,6 +81,7 @@
 .posts-readmore {
   font-size: 12px;
   color: var(--primary-color);
+  margin-top: 5px;
 }
 
 .post-info-container {
@@ -89,7 +90,17 @@
   font-family: "Roboto", sans-serif;
   font-size: 12px;
   color: var(--primary-color);
+}
+
+.post-info-container p {
   margin: 0;
+}
+
+.post-all-text-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 5px;
 }
 
 .carousel {
@@ -112,10 +123,11 @@
     flex-direction: row;
     width: fit-content;
     margin-bottom: 10px;
+    gap: 40px;
   }
   .carousel {
     overflow-x: scroll;
-    padding: 0px;
+    padding: 10px;
     margin-bottom: 10px;
   }
   .post-container {
