@@ -18,14 +18,22 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 50px;
+  gap: 0px;
 }
 
 .hero-heading {
   font-family: "Roboto", sans-serif;
   font-weight: 700;
-  font-size: clamp(3rem, 7vw, 10rem);
+  font-size: clamp(2rem, 7vw, 10rem);
   margin: 0;
+}
+
+.hero-subheading {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-size: clamp(1rem, 2vw, 5rem);
+  margin-top: 10px;
+  margin-bottom: 50px;
 }
 
 .posts-container {
@@ -92,14 +100,18 @@
   .hero {
     height: calc(100vh - 120px);
   }
+  .hero-subheading {
+    margin-bottom: 100px;
+  } 
   .posts-container {
     flex-direction: row;
     width: fit-content;
-    margin-bottom: 0px;
+    margin-bottom: 10px;
   }
   .carousel {
     overflow-x: scroll;
-    padding: 10px;
+    padding: 0px;
+    margin-bottom: 10px;
   }
   .post-container {
     width: 350px;

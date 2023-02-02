@@ -36,7 +36,7 @@ function displayPosts(posts) {
   // remove loading message
   postsContainer.innerHTML = "";
 
-  for (let i = 0; i < 4; i++) {
+  for (let i = 0; i < 5; i++) {
     const post = posts[i];
     postsContainer.innerHTML += `
     <a href="post.html?id=${post.id}" class="post-link">

@@ -35,7 +35,7 @@ main {
 }
 
 section {
-  padding: 100px 40px 200px 40px;
+  padding: 50px 40px 100px 40px;
   max-width: 70rem;
   margin: 0 auto;
 }
@@ -47,11 +47,11 @@ section button {
 
 h1 {
   font-weight: 500;
-  font-size: 40px;
+  font-size: 30px;
   font-family: "Roboto", sans-serif;
   color: var(--secondary-color);
   text-align: left;
-  margin-bottom: 50px;
+  margin-bottom: 40px;
 }
 
 .bold {
