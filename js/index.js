@@ -27,7 +27,7 @@ async function getPosts() {
     displayPosts(posts);
   } catch (error) {
     console.log(error);
-    postsContainer.innerHTML = "Error, please reload the page.";
+    postsContainer.innerHTML = `<p class="error">Error, please reload the page</p>`;
   }
 }
 
@@ -44,8 +44,7 @@ function displayPosts(posts) {
         <img
           class="post-img"
           src="${
-            post._embedded["wp:featuredmedia"][0].media_details.sizes.medium
-              .source_url
+            post._embedded["wp:featuredmedia"][0].media_details.sizes.full.source_url
           }"
           alt="image of Bali"
         />

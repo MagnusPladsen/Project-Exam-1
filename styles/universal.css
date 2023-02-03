@@ -102,6 +102,12 @@ h1 {
   margin-bottom: 200px;
 }
 
+.error {
+  color: red;
+  text-align: center;
+  margin-bottom: 200px;
+}
+
 /* -- DESKTOP -- */
 @media screen and (min-width: 768px) {
   .logo-container {
