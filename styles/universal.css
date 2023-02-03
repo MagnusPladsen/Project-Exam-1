@@ -94,7 +94,12 @@ h1 {
   font-weight: 500;
   font-size: 1.5rem;
   color: var(--primary-color);
+}
 
+.loading {
+  height: 100px;
+  padding: 100px calc(50vw - 200px);
+  margin-bottom: 200px;
 }
 
 /* -- DESKTOP -- */

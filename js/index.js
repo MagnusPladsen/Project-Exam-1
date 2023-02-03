@@ -17,7 +17,7 @@ function removeTags(string) {
 }
 
 // set up loading message in case of slow connection
-postsContainer.innerHTML = "Loading...";
+postsContainer.innerHTML = `<img class="loading" src="/images/gifs/loading-spinner.gif" alt="loading" />`;
 
 async function getPosts() {
   try {
