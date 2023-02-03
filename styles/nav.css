@@ -52,6 +52,13 @@ nav {
 .menu-list li {
   width: fit-content;
   margin: 0 auto;
+  transition: all 0.2s ease-in-out;
+}
+
+.menu-list li:hover {
+  cursor: pointer;
+  color: var(--secondary-color);
+  transition: all 0.2s ease-in-out;
 }
 
 .nav-active {

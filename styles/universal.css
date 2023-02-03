@@ -91,11 +91,18 @@ h1 {
   padding-top: 10px;
 }
 
+.logo-text:hover {
+  cursor: pointer;
+  color: var(--secondary-color);
+  transition: all 0.2s ease-in-out;
+}
+
 .logo-text {
   font-family: "Roboto", sans-serif;
   font-weight: 500;
   font-size: 1.5rem;
   color: var(--primary-color);
+  transition: all 0.2s ease-in-out;
 }
 
 .loading {
@@ -108,6 +115,15 @@ h1 {
   color: red;
   text-align: center;
   margin-bottom: 200px;
+}
+
+.hover-secondary {
+  transition: all 0.2s ease-in-out;
+}
+
+.hover-secondary:hover {
+  color: var(--secondary-color);
+  transition: all 0.2s ease-in-out;
 }
 
 /* -- DESKTOP -- */
