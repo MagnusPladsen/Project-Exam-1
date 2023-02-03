@@ -29,7 +29,7 @@
 .hero-subheading {
   font-family: "Roboto", sans-serif;
   font-weight: 300;
-  font-size: clamp(1rem, 2vw, 5rem);
+  font-size: clamp(1.2rem, 2vw, 5rem);
   margin-top: 10px;
 }
 
