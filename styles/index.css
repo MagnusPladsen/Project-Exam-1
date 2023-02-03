@@ -37,6 +37,8 @@
   position: absolute;
   /* top: 55vh; */
   bottom: 10vh;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .posts-container {
