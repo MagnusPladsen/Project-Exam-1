@@ -13,18 +13,16 @@
   color: white;
   text-align: center;
 }
-
-.hero-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0px;
+.hero-text-container {
+  position: absolute;
+  /* top: 40vh; */
+  bottom: 18vh;
 }
 
 .hero-heading {
   font-family: "Roboto", sans-serif;
   font-weight: 700;
-  font-size: clamp(2rem, 7vw, 10rem);
+  font-size: clamp(2.5rem, 7vw, 10rem);
   margin: 0;
 }
 
@@ -33,18 +31,24 @@
   font-weight: 300;
   font-size: clamp(1rem, 2vw, 5rem);
   margin-top: 10px;
-  margin-bottom: 50px;
+}
+
+.hero-button {
+  position: absolute;
+  /* top: 55vh; */
+  bottom: 10vh;
 }
 
 .posts-container {
   display: flex;
   flex-direction: column;
+  padding-bottom: 20px;
   gap: 60px;
 }
 
 .post-container {
   max-width: 350px;
-  height: 350px;
+  height: 400px;
   position: relative;
   scale: 1;
   transition: all 0.2s ease-in-out;
@@ -69,7 +73,7 @@
   width: 100%;
   object-fit: cover;
   border-radius: 5px;
-  height: 50%;
+  height: 60%;
 }
 
 .post-text {
@@ -116,9 +120,9 @@
   .hero {
     height: calc(100vh - 120px);
   }
-  .hero-subheading {
-    margin-bottom: 100px;
-  } 
+  .hero-button {
+    /* top: 65vh; */
+  }
   .posts-container {
     flex-direction: row;
     width: fit-content;
