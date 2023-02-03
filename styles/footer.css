@@ -30,9 +30,9 @@ footer .logo-container {
 /* -- DESKTOP -- */
 @media screen and (min-width: 768px) {
   footer {
-    padding: 100px 50px 40px;
+    padding: 50px 50px 40px;
   }
   .footer-text p {
-    margin: 20px 0;
+    margin: 10  px 0;
   }
 }
