@@ -46,7 +46,7 @@ function displayPosts(posts) {
           src="${
             post._embedded["wp:featuredmedia"][0].media_details.sizes.full.source_url
           }"
-          alt="image of Bali"
+          alt="image of ${post.title.rendered}"
         />
         <div class="post-all-text-container">
           <h2 class="post-title">${post.title.rendered}</h2>
@@ -69,7 +69,7 @@ if (sessionStorage.getItem("posts")) {
   // if so, get them from sessionStorage
   const posts = JSON.parse(sessionStorage.getItem("posts"));
 
-  // check is posts already exist in the DOM
+  // check is postsContainer exists
   if (postsContainer) {
     displayPosts(posts);
   }

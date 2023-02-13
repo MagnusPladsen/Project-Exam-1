@@ -1,10 +1,10 @@
 /* ---- NAV ---- */
 
 nav {
-  background-color: white;
+  background-color: #faf9f6;
   height: 100px;
-  padding: 0 40px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  padding: 10px 40px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
 
 .nav-content-container {
@@ -22,14 +22,15 @@ nav {
 
 .mobile-dropdown {
   position: absolute;
-  top: 100px;
+  top: 120px;
   left: 0;
   width: 100%;
-  height: calc(100vh - 104px);
-  border-top: 2px solid var(--primary-color);
-  border-bottom: 2px solid var(--primary-color);
-  background-color: #f2f2f2;
+  height: calc(100vh - 120px);
+  border-top: 1px solid var(--primary-color);
+  border-bottom: 1px solid var(--primary-color);
+  background-color: white;
   z-index: 1;
+  box-shadow: 0 20px 20px rgba(0, 0, 0, 0.2);
 }
 
 .hidden {

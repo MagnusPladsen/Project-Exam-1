@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="../images/icons/favicon.png" type="image/png" />
+
+    <!---- FONTS ---->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800&family=Roboto:wght@300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!---- CSS LINKS ---->
+    <link rel="stylesheet" href="../styles/universal.css" />
+    <link rel="stylesheet" href="../styles/nav.css" />
+    <link rel="stylesheet" href="../styles/blog.css" />
+    <link rel="stylesheet" href="../styles/footer.css" />
+
+    <!---- JS LINKS ---->
+    <script src="../js/blog.js" type="module"></script>
+    <script src="../js/nav.js" type="module"></script>
+
+    <title>Travela</title>
+  </head>
+  <body>
+    <nav>
+      <div class="nav-content-container">
+        <div class="logo-container">
+          <img
+            class="logo-image"
+            src="../images/icons/logo.svg"
+            alt="Travela logo"
+          />
+          <p class="logo-text">Travela</p>
+        </div>
+        <div class="mobile-menu">
+          <img
+            id="nav-button"
+            class="hamburger"
+            src="..//images/icons/hamburger.svg"
+            alt="hamburger icon"
+          />
+          <div id="drop-down" class="mobile-dropdown hidden">
+            <ul class="menu-list">
+              <li class="menu-item">
+                <a href="../index.html">Home</a>
+              </li>
+              <li class="menu-item nav-active">
+                <a href="../pages/blog.html">Blog</a>
+              </li>
+              <li class="menu-item"><a href="../pages/about.html">About</a></li>
+              <li class="menu-item">
+                <a href="../pages/contact.html">Contact</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="desktop-menu">
+          <ul class="menu-list">
+            <li class="menu-item">
+              <a href="../index.html">Home</a>
+            </li>
+            <li class="menu-item nav-active">
+              <a href="../pages/blog.html">Blog</a>
+            </li>
+            <li class="menu-item"><a href="../pages/about.html">About</a></li>
+            <li class="menu-item">
+              <a href="../pages/contact.html">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <main>
+      <section>
+        <h1>All posts</h1>
+        <div class="button-container">
+          <div class="search-bar">
+            <input class="search-input" type="text" placeholder="Search..." />
+            <button class="search-button">
+              <img
+                class="search-icon"
+                src="../images/icons/search-icon.svg"
+                alt="search icon"
+              />
+            </button>
+          </div>
+          <div class="sort-buttons">
+            <div class="sort-button category-button">
+              <button class="category-button-text">Category</button>
+              <img
+                class="category-button-icon"
+                src="../images/icons/arrow-down.svg"
+                alt="arrow down icon"
+              />
+            </div>
+            <div class="sort-button date-button">
+              <button class="category-button-text">Sort by</button>
+              <img
+                class="category-button-icon"
+                src="../images/icons/arrow-down.svg"
+                alt="arrow down icon"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="posts-container"></div>
+        <div class="button-container"><button class="cta more-posts-button">More posts</button></div>
+      </section>
+    </main>
+    <footer>
+      <div class="footer-content">
+        <div class="logo-container">
+          <img
+            class="logo-image"
+            src="../images/icons/logo.svg"
+            alt="Travela logo"
+          />
+          <p class="logo-text">Travela</p>
+        </div>
+        <div class="footer-text">
+          <p>Phone: <span class="hover-secondary">998 87 766</span></p>
+          <p>
+            <a href="mailto:contact@travela.com"
+              >Email:
+              <span class="hover-secondary">contact@travela.com</span></a
+            >
+          </p>
+          <p>Web: <span class="hover-secondary">www.travela.com</span></p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
