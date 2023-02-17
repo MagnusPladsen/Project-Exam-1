@@ -2,7 +2,7 @@
 
 footer {
   padding: 50px 40px;
-  background-color: #faf9f6;
+  background-color: var(--grayGreen-color);
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
 

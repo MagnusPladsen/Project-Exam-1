@@ -3,6 +3,7 @@
 :root {
   --primary-color: #6d6611;
   --secondary-color: #bd5942;
+  --grayGreen-color: #fffcf5;
 }
 
 body {
@@ -75,6 +76,7 @@ h1 {
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
   scale: 1;
   transition: all 0.2s ease-in-out;
+  background-color: var(--grayGreen-color)
 }
 
 .cta:hover {

@@ -1,7 +1,5 @@
 let page = 1;
 
-const url = `https://travela.magnuspladsen.no/wp-json/wp/v2/posts?page=${page}&_embed`;
-
 const postsContainer = document.querySelector(".posts-container");
 
 const morePostsButton = document.querySelector(".more-posts-button");
@@ -27,21 +25,23 @@ const postCache = [];
 // TODO: fix so fetch fetches right page, currently only fetches page 1
 async function getPosts() {
   try {
+    const url = `https://travela.magnuspladsen.no/wp-json/wp/v2/posts?page=${page}&_embed`;
     const response = await fetch(url);
     const posts = await response.json();
     sessionStorage.setItem("posts", JSON.stringify(posts));
-    console.log("fetching page " + page)
-    console.log(posts)
+    console.log("fetching url " + url);
+    console.log(posts);
     posts.forEach((post) => {
       if (postCache.find((p) => p.id === post.id)) {
-        console.log("post already in cache")
+        console.log("post already in cache");
       } else {
         postCache.push(post);
+        console.log("pushing ", post);
       }
     });
     console.log(postCache.length);
     console.log(postCache);
-    displayPosts(posts);
+    displayPosts(postCache);
   } catch (error) {
     console.log(error);
     postsContainer.innerHTML = `<p class="error">Error, please reload the page</p>`;
@@ -101,5 +101,6 @@ if (sessionStorage.getItem("posts")) {
 
 morePostsButton.onclick = function () {
   page++;
+  console.log(page);
   getPosts();
 };

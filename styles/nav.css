@@ -1,7 +1,7 @@
 /* ---- NAV ---- */
 
 nav {
-  background-color: #faf9f6;
+  background-color: var(--grayGreen-color);
   height: 100px;
   padding: 10px 40px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);

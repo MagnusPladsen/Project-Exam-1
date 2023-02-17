@@ -9,15 +9,15 @@
   align-items: center;
   justify-content: space-between;
   gap: 20px;
-  background-color: white;
+  background-color: var(--grayGreen-color);
   height: 50px;
   border: 2px solid var(--primary-color);
   border-radius: 5px;
 }
 
 .search-bar:focus {
-    border: 2px solid var(--secondary-color);
-    border-radius: 5px;
+  border: 2px solid var(--secondary-color);
+  border-radius: 5px;
 }
 
 .search-bar input {
@@ -25,6 +25,8 @@
   width: 100%;
   height: 100%;
   padding: 0 20px;
+  background-color: var(--grayGreen-color);
+  margin-left: 2px;
 }
 
 .search-input:focus {
@@ -47,12 +49,20 @@
   align-items: center;
   justify-content: space-between;
   gap: 20px;
-  background-color: white;
+  background-color: var(--grayGreen-color);
   height: 50px;
   border: 2px solid var(--primary-color);
   border-radius: 5px;
   width: 100%;
   padding: 0 20px;
+  scale: 1;
+  transition: all 0.2s ease-in-out;
+}
+
+.sort-button:hover {
+  scale: 1.1;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
 }
 
 .sort-button button,
@@ -144,8 +154,8 @@
   .posts-container {
     flex-direction: row;
     margin-bottom: 10px;
-    gap: 40px;
-    justify-content: space-between;
+    gap: 50px;
+    justify-content: start;
   }
   .post-container {
     width: 350px;
