@@ -21,8 +21,6 @@ function removeTags(string) {
 // set up loading message in case of slow connection
 postsContainer.innerHTML = `<img class="loading" src="/images/gifs/loading-spinner.gif" alt="loading" />`;
 
-const postCache = [];
-
 async function getPosts() {
   try {
     const url = `https://travela.magnuspladsen.no/wp-json/wp/v2/posts?page=${page}&_embed`;
@@ -30,6 +28,13 @@ async function getPosts() {
     const posts = await response.json();
     console.log("fetching url " + url);
     console.log(posts);
+    const postCache = [];
+    const oldPosts = JSON.parse(sessionStorage.getItem("posts"));
+    if (oldPosts) {
+      oldPosts.forEach((post) => {
+        postCache.push(post);
+      });
+    }
     posts.forEach((post) => {
       if (postCache.find((p) => p.id === post.id)) {
         console.log("post already in cache");
@@ -39,8 +44,6 @@ async function getPosts() {
       }
     });
     sessionStorage.setItem("posts", JSON.stringify(postCache));
-    console.log(postCache.length);
-    console.log(postCache);
     displayPosts(postCache);
   } catch (error) {
     console.log(error);
