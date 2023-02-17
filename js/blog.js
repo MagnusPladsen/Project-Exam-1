@@ -28,7 +28,6 @@ async function getPosts() {
     const url = `https://travela.magnuspladsen.no/wp-json/wp/v2/posts?page=${page}&_embed`;
     const response = await fetch(url);
     const posts = await response.json();
-    sessionStorage.setItem("posts", JSON.stringify(posts));
     console.log("fetching url " + url);
     console.log(posts);
     posts.forEach((post) => {
@@ -39,6 +38,7 @@ async function getPosts() {
         console.log("pushing ", post);
       }
     });
+    sessionStorage.setItem("posts", JSON.stringify(postCache));
     console.log(postCache.length);
     console.log(postCache);
     displayPosts(postCache);
