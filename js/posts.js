@@ -25,26 +25,30 @@ async function getPosts() {
   try {
     const url = `https://travela.magnuspladsen.no/wp-json/wp/v2/posts?page=${page}&_embed`;
     const response = await fetch(url);
-    const posts = await response.json();
-    console.log("fetching url " + url);
-    console.log(posts);
-    const postCache = [];
-    const oldPosts = JSON.parse(sessionStorage.getItem("posts"));
-    if (oldPosts) {
-      oldPosts.forEach((post) => {
-        postCache.push(post);
-      });
-    }
-    posts.forEach((post) => {
-      if (postCache.find((p) => p.id === post.id)) {
-        console.log("post already in cache");
-      } else {
-        postCache.push(post);
-        console.log("pushing ", post);
+    console.log(response);
+    if (response.ok === false) {
+      morePostsButton.style.display = "none";
+      return;
+    } else {
+      const posts = await response.json();
+      console.log(posts);
+      const postCache = [];
+      const oldPosts = JSON.parse(sessionStorage.getItem("posts"));
+      if (oldPosts) {
+        oldPosts.forEach((post) => {
+          postCache.push(post);
+        });
       }
-    });
-    sessionStorage.setItem("posts", JSON.stringify(postCache));
-    displayPosts(postCache);
+      posts.forEach((post) => {
+        if (postCache.find((p) => p.id === post.id)) {
+          console.log("post already in cache");
+        } else {
+          postCache.push(post);
+        }
+      });
+      sessionStorage.setItem("posts", JSON.stringify(postCache));
+      displayPosts(postCache);
+    }
   } catch (error) {
     console.log(error);
     postsContainer.innerHTML = `<p class="error">Error, please reload the page</p>`;
