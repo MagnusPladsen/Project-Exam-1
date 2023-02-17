@@ -22,7 +22,7 @@ function removeTags(string) {
 postsContainer.innerHTML = `<img class="loading" src="/images/gifs/loading-spinner.gif" alt="loading" />`;
 
 const postCache = [];
-// TODO: fix so fetch fetches right page, currently only fetches page 1
+
 async function getPosts() {
   try {
     const url = `https://travela.magnuspladsen.no/wp-json/wp/v2/posts?page=${page}&_embed`;
@@ -101,6 +101,5 @@ if (sessionStorage.getItem("posts")) {
 
 morePostsButton.onclick = function () {
   page++;
-  console.log(page);
   getPosts();
 };
