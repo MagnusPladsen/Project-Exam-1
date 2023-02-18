@@ -54,7 +54,7 @@ h1 {
   font-family: "Roboto", sans-serif;
   color: var(--secondary-color);
   text-align: left;
-  margin-bottom: 40px;
+  margin-bottom: 40px !important;
 }
 
 .bold {

@@ -107,11 +107,11 @@ function displayPosts(posts) {
     const postID = new URLSearchParams(window.location.search).get("id");
     // find the post with the id
     const post = posts.find((post) => post.id === parseInt(postID));
+    console.log(post.content);
     // display the post
-    specificPostContainer.innerHTML = `<div class="post-container">
-  
+    specificPostContainer.innerHTML = `
     <img
-      class="post-img"
+      class="specific-post-img"
       src="${
         post._embedded["wp:featuredmedia"][0].media_details.sizes.full
           .source_url
@@ -119,17 +119,16 @@ function displayPosts(posts) {
       alt="image of ${post.title.rendered}"
     />
     <div class="post-all-text-container">
-      <h2 class="post-title">${post.title.rendered}</h2>
-      <div class="post-info-container">
-        <p class="post-author">By ${post._embedded.author[0].name}</p><p>-</p>
-        <p class="post-date">${dateFormatter(post.date)}</p>
-        <p>-</p>
-        <p class="post-category">${post._embedded["wp:term"][0][0].name}</p>
+    <div class="speicific-post-text-container">
+      ${post.content.rendered}
       </div>
-      <p class="post-text">${getShortText(post.excerpt.rendered)}</p>
-      <p class="posts-readmore">Click to read more</p>
+      <div class="post-info-container">
+      <p class="post-author">By ${post._embedded.author[0].name}</p><p>-</p>
+      <p class="post-date">${dateFormatter(post.date)}</p>
+      <p>-</p>
+      <p class="post-category">${post._embedded["wp:term"][0][0].name}</p>
     </div>
-  </div> `;
+    </div>`;
     postH1.innerHTML = post.title.rendered;
   }
 }
