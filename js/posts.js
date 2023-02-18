@@ -4,6 +4,12 @@ const postsContainer = document.querySelector(".posts-container");
 
 const morePostsButton = document.querySelector(".more-posts-button");
 
+const specificPostContainer = document.querySelector(
+  ".specific-post-container"
+);
+
+const postH1 = document.querySelector(".post-h1");
+
 function dateFormatter(string) {
   return string.substring(0, 10);
 }
@@ -19,13 +25,16 @@ function removeTags(string) {
 }
 
 // set up loading message in case of slow connection
-postsContainer.innerHTML = `<img class="loading" src="/images/gifs/loading-spinner.gif" alt="loading" />`;
+if (postsContainer) {
+  postsContainer.innerHTML = `<img class="loading" src="/images/gifs/loading-spinner.gif" alt="loading" />`;
+} else if (specificPostContainer) {
+  specificPostContainer.innerHTML = `<img class="loading" src="/images/gifs/loading-spinner.gif" alt="loading" />`;
+}
 
 async function getPosts() {
   try {
     const url = `https://travela.magnuspladsen.no/wp-json/wp/v2/posts?page=${page}&_embed`;
     const response = await fetch(url);
-    console.log(response);
     if (response.ok === false) {
       morePostsButton.style.display = "none";
       return;
@@ -56,11 +65,12 @@ async function getPosts() {
 }
 
 function displayPosts(posts) {
-  // remove loading message
-  postsContainer.innerHTML = "";
+  if (postsContainer) {
+    // remove loading message
+    postsContainer.innerHTML = "";
 
-  posts.forEach((post) => {
-    postsContainer.innerHTML += `
+    posts.forEach((post) => {
+      postsContainer.innerHTML += `
       <a href="post.html?id=${post.id}" class="post-link">
         <div class="post-container">
   
@@ -89,24 +99,55 @@ function displayPosts(posts) {
           </div>
         </div>
       </a>`;
-  });
+    });
+  } else {
+    // remove loading message
+    specificPostContainer.innerHTML = "";
+    // get the id from the url
+    const postID = new URLSearchParams(window.location.search).get("id");
+    // find the post with the id
+    const post = posts.find((post) => post.id === parseInt(postID));
+    // display the post
+    specificPostContainer.innerHTML = `<div class="post-container">
+  
+    <img
+      class="post-img"
+      src="${
+        post._embedded["wp:featuredmedia"][0].media_details.sizes.full
+          .source_url
+      }"
+      alt="image of ${post.title.rendered}"
+    />
+    <div class="post-all-text-container">
+      <h2 class="post-title">${post.title.rendered}</h2>
+      <div class="post-info-container">
+        <p class="post-author">By ${post._embedded.author[0].name}</p><p>-</p>
+        <p class="post-date">${dateFormatter(post.date)}</p>
+        <p>-</p>
+        <p class="post-category">${post._embedded["wp:term"][0][0].name}</p>
+      </div>
+      <p class="post-text">${getShortText(post.excerpt.rendered)}</p>
+      <p class="posts-readmore">Click to read more</p>
+    </div>
+  </div> `;
+    postH1.innerHTML = post.title.rendered;
+  }
 }
 
 // check if posts are in sessionStorage
 if (sessionStorage.getItem("posts")) {
   // if so, get them from sessionStorage
   const posts = JSON.parse(sessionStorage.getItem("posts"));
-
-  // check is postsContainer exists
-  if (postsContainer) {
-    displayPosts(posts);
-  }
+  displayPosts(posts);
 } else {
   // if not, get them from the API
   getPosts();
 }
 
-morePostsButton.onclick = function () {
-  page++;
-  getPosts();
-};
+// if on all blogs page add event listener for the see more posts button
+if (postsContainer) {
+  morePostsButton.onclick = function () {
+    page++;
+    getPosts();
+  };
+}
