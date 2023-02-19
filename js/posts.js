@@ -171,29 +171,31 @@ function AddCategoryOptions() {
 }
 
 function setCategories(posts) {
-  categoryOptions.innerHTML = "";
-  const newCategories = { all: 0 };
-  posts.forEach((post) => {
-    newCategories[post._embedded["wp:term"][0][0].name] = 0;
-  });
-  posts.forEach((post) => {
-    if (post._embedded["wp:term"][0][0].name) {
-      newCategories[post._embedded["wp:term"][0][0].name]++;
-      newCategories.all++;
-    }
-  });
+  if (categoryOptions) {
+    categoryOptions.innerHTML = "";
+    const newCategories = { all: 0 };
+    posts.forEach((post) => {
+      newCategories[post._embedded["wp:term"][0][0].name] = 0;
+    });
+    posts.forEach((post) => {
+      if (post._embedded["wp:term"][0][0].name) {
+        newCategories[post._embedded["wp:term"][0][0].name]++;
+        newCategories.all++;
+      }
+    });
 
-  categoryOptions.innerHTML += `<div class="option" id="All">All posts (${newCategories.all})</div>`;
+    categoryOptions.innerHTML += `<div class="option" id="All">All posts (${newCategories.all})</div>`;
 
-  Object.keys(newCategories).forEach((category) => {
-    if (category === "all") {
-      return;
-    } else {
-      categoryOptions.innerHTML += `<div class="option" id="${category}">${category} (${newCategories[category]})</div>
+    Object.keys(newCategories).forEach((category) => {
+      if (category === "all") {
+        return;
+      } else {
+        categoryOptions.innerHTML += `<div class="option" id="${category}">${category} (${newCategories[category]})</div>
     `;
-    }
-  });
-  AddCategoryOptions();
+      }
+    });
+    AddCategoryOptions();
+  }
 }
 
 // check if posts are in sessionStorage
@@ -208,7 +210,7 @@ if (sessionStorage.getItem("posts")) {
 }
 
 // if on all blogs page add event listener for the see more posts button
-if (postsContainer) {
+if (morePostsButton) {
   morePostsButton.onclick = function () {
     page++;
     getPosts();
