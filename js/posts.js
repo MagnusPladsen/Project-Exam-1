@@ -36,6 +36,7 @@ if (postsContainer) {
 }
 
 const categories = [];
+const newCategories = { all: 0 };
 
 function setCategories(posts) {
   posts.forEach((post) => {
@@ -45,12 +46,29 @@ function setCategories(posts) {
       )
     ) {
       categories.push(post._embedded["wp:term"][0][0].name);
+      newCategories[post._embedded["wp:term"][0][0].name] = 0;
     }
   });
+  categories.sort();
   categories.forEach((category) => {
-    categoryOptions.innerHTML += `<div class="option" id="${category}">${category}</div>
-    `;
+    posts.forEach((post) => {
+      if (category === post._embedded["wp:term"][0][0].name) {
+        newCategories[post._embedded["wp:term"][0][0].name]++;
+        newCategories.all++;
+      }
+    });
   });
+  categoryOptions.innerHTML += `<div class="option" id="All">All posts (${newCategories.all})</div>`;
+
+  Object.keys(newCategories).forEach((category) => {
+    if (category === "all") {
+      return;
+    } else {
+      categoryOptions.innerHTML += `<div class="option" id="${category}">${category} (${newCategories[category]})</div>
+    `;
+    }
+  });
+  console.log(newCategories);
 }
 
 async function getPosts() {
@@ -79,7 +97,7 @@ async function getPosts() {
       sessionStorage.setItem("posts", JSON.stringify(postCache));
       displayPosts(postCache);
       setCategories(postCache);
-      console.log(categories)
+      console.log(categories);
     }
   } catch (error) {
     console.log(error);
