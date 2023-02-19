@@ -128,6 +128,15 @@ h1 {
   transition: all 0.2s ease-in-out;
 }
 
+.hidden {
+  display: none !important;
+  transition: all 0.2s ease-in-out;
+}
+
+.selected {
+  color: var(--secondary-color);
+}
+
 /* -- DESKTOP -- */
 @media screen and (min-width: 768px) {
   .logo-container {

@@ -8,6 +8,10 @@ const specificPostContainer = document.querySelector(
   ".specific-post-container"
 );
 
+const categoryButton = document.querySelectorAll(".category-button");
+
+const categoryOptions = document.querySelector(".category-options");
+
 const postH1 = document.querySelector(".post-h1");
 
 function dateFormatter(string) {
@@ -31,10 +35,29 @@ if (postsContainer) {
   specificPostContainer.innerHTML = `<img class="loading" src="/images/gifs/loading-spinner.gif" alt="loading" />`;
 }
 
+const categories = [];
+
+function setCategories(posts) {
+  posts.forEach((post) => {
+    if (
+      !categories.find(
+        (category) => category === post._embedded["wp:term"][0][0].name
+      )
+    ) {
+      categories.push(post._embedded["wp:term"][0][0].name);
+    }
+  });
+  categories.forEach((category) => {
+    categoryOptions.innerHTML += `<div class="option" id="${category}">${category}</div>
+    `;
+  });
+}
+
 async function getPosts() {
   try {
     const url = `https://travela.magnuspladsen.no/wp-json/wp/v2/posts?page=${page}&_embed`;
     const response = await fetch(url);
+    // if try to get more pages than there are, hide the button
     if (response.ok === false) {
       morePostsButton.style.display = "none";
       return;
@@ -49,14 +72,14 @@ async function getPosts() {
         });
       }
       posts.forEach((post) => {
-        if (postCache.find((p) => p.id === post.id)) {
-          console.log("post already in cache");
-        } else {
+        if (!postCache.find((p) => p.id === post.id)) {
           postCache.push(post);
         }
       });
       sessionStorage.setItem("posts", JSON.stringify(postCache));
       displayPosts(postCache);
+      setCategories(postCache);
+      console.log(categories)
     }
   } catch (error) {
     console.log(error);
@@ -133,11 +156,24 @@ function displayPosts(posts) {
   }
 }
 
+function sortByCategory(posts, category) {
+  if (category === "All") {
+    displayPosts(posts);
+    return;
+  } else {
+    const filteredPosts = posts.filter((post) => {
+      return post._embedded["wp:term"][0][0].name === category;
+    });
+    displayPosts(filteredPosts);
+  }
+}
+
 // check if posts are in sessionStorage
 if (sessionStorage.getItem("posts")) {
   // if so, get them from sessionStorage
   const posts = JSON.parse(sessionStorage.getItem("posts"));
   displayPosts(posts);
+  setCategories(posts);
 } else {
   // if not, get them from the API
   getPosts();
@@ -149,4 +185,24 @@ if (postsContainer) {
     page++;
     getPosts();
   };
+}
+
+if (categoryButton) {
+  categoryButton.forEach((button) => {
+    button.onclick = function () {
+      categoryOptions.classList.toggle("hidden");
+    };
+  });
+  const options = document.querySelectorAll(".option");
+  options.forEach((option) => {
+    const posts = JSON.parse(sessionStorage.getItem("posts"));
+    option.onclick = function () {
+      sortByCategory(posts, option.id);
+      categoryOptions.classList.toggle("hidden");
+      options.forEach((option) => {
+        option.classList.remove("selected");
+      });
+      option.classList.toggle("selected");
+    };
+  });
 }
