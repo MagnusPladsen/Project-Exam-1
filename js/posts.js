@@ -35,42 +35,6 @@ if (postsContainer) {
   specificPostContainer.innerHTML = `<img class="loading" src="/images/gifs/loading-spinner.gif" alt="loading" />`;
 }
 
-const categories = [];
-const newCategories = { all: 0 };
-
-function setCategories(posts) {
-  posts.forEach((post) => {
-    if (
-      !categories.find(
-        (category) => category === post._embedded["wp:term"][0][0].name
-      )
-    ) {
-      categories.push(post._embedded["wp:term"][0][0].name);
-      newCategories[post._embedded["wp:term"][0][0].name] = 0;
-    }
-  });
-  categories.sort();
-  categories.forEach((category) => {
-    posts.forEach((post) => {
-      if (category === post._embedded["wp:term"][0][0].name) {
-        newCategories[post._embedded["wp:term"][0][0].name]++;
-        newCategories.all++;
-      }
-    });
-  });
-  categoryOptions.innerHTML += `<div class="option" id="All">All posts (${newCategories.all})</div>`;
-
-  Object.keys(newCategories).forEach((category) => {
-    if (category === "all") {
-      return;
-    } else {
-      categoryOptions.innerHTML += `<div class="option" id="${category}">${category} (${newCategories[category]})</div>
-    `;
-    }
-  });
-  console.log(newCategories);
-}
-
 async function getPosts() {
   try {
     const url = `https://travela.magnuspladsen.no/wp-json/wp/v2/posts?page=${page}&_embed`;
@@ -81,7 +45,6 @@ async function getPosts() {
       return;
     } else {
       const posts = await response.json();
-      console.log(posts);
       const postCache = [];
       const oldPosts = JSON.parse(sessionStorage.getItem("posts"));
       if (oldPosts) {
@@ -97,7 +60,6 @@ async function getPosts() {
       sessionStorage.setItem("posts", JSON.stringify(postCache));
       displayPosts(postCache);
       setCategories(postCache);
-      console.log(categories);
     }
   } catch (error) {
     console.log(error);
@@ -186,6 +148,54 @@ function sortByCategory(posts, category) {
   }
 }
 
+function AddCategoryOptions() {
+  if (categoryButton) {
+    categoryButton.forEach((button) => {
+      button.onclick = function () {
+        categoryOptions.classList.toggle("hidden");
+      };
+    });
+    const options = document.querySelectorAll(".option");
+    options.forEach((option) => {
+      const posts = JSON.parse(sessionStorage.getItem("posts"));
+      option.onclick = function () {
+        sortByCategory(posts, option.id);
+        categoryOptions.classList.toggle("hidden");
+        options.forEach((option) => {
+          option.classList.remove("selected");
+        });
+        option.classList.toggle("selected");
+      };
+    });
+  }
+}
+
+function setCategories(posts) {
+  categoryOptions.innerHTML = "";
+  const newCategories = { all: 0 };
+  posts.forEach((post) => {
+    newCategories[post._embedded["wp:term"][0][0].name] = 0;
+  });
+  posts.forEach((post) => {
+    if (post._embedded["wp:term"][0][0].name) {
+      newCategories[post._embedded["wp:term"][0][0].name]++;
+      newCategories.all++;
+    }
+  });
+
+  categoryOptions.innerHTML += `<div class="option" id="All">All posts (${newCategories.all})</div>`;
+
+  Object.keys(newCategories).forEach((category) => {
+    if (category === "all") {
+      return;
+    } else {
+      categoryOptions.innerHTML += `<div class="option" id="${category}">${category} (${newCategories[category]})</div>
+    `;
+    }
+  });
+  AddCategoryOptions();
+}
+
 // check if posts are in sessionStorage
 if (sessionStorage.getItem("posts")) {
   // if so, get them from sessionStorage
@@ -203,24 +213,4 @@ if (postsContainer) {
     page++;
     getPosts();
   };
-}
-
-if (categoryButton) {
-  categoryButton.forEach((button) => {
-    button.onclick = function () {
-      categoryOptions.classList.toggle("hidden");
-    };
-  });
-  const options = document.querySelectorAll(".option");
-  options.forEach((option) => {
-    const posts = JSON.parse(sessionStorage.getItem("posts"));
-    option.onclick = function () {
-      sortByCategory(posts, option.id);
-      categoryOptions.classList.toggle("hidden");
-      options.forEach((option) => {
-        option.classList.remove("selected");
-      });
-      option.classList.toggle("selected");
-    };
-  });
 }
