@@ -2,6 +2,14 @@ let page = 1;
 
 const postsContainer = document.querySelector(".posts-container");
 
+const recentPostsContainer = document.querySelector(".recent-posts-container");
+
+const nextButton = document.querySelector("#next-button");
+
+const prevButton = document.querySelector("#prev-button");
+
+const carouselTips = document.querySelector(".carousel-tip");
+
 const morePostsButton = document.querySelector(".more-posts-button");
 
 const specificPostContainer = document.querySelector(
@@ -67,8 +75,58 @@ async function getPosts() {
   }
 }
 
-function displayPosts(posts) {
-  if (postsContainer) {
+function displayPosts(posts, carouselOption = "none") {
+  if (recentPostsContainer) {
+    // remove loading message
+    recentPostsContainer.innerHTML = "";
+
+    let postCounter = 0;
+    let postStopper = 2;
+
+    if (carouselOption === "next") {
+      postCounter = 3;
+      postStopper = 5;
+      carouselTips.innerHTML = "";
+      carouselTips.innerHTML = `<p class="carousel-tip">Showing 3-6 of 6 most recent posts</p>`;
+    } else if (carouselOption === "prev") {
+      postCounter = 0;
+      postStopper = 2;
+      carouselTips.innerHTML = "";
+      carouselTips.innerHTML = `<p class="carousel-tip">Showing 1-3 of 6 most recent posts</p>`;
+    }
+    for (postCounter; postCounter <= postStopper; postCounter++) {
+      const post = posts[postCounter];
+      recentPostsContainer.innerHTML += `
+      <a href="post.html?id=${post.id}" class="post-link">
+        <div class="post-container">
+  
+          <img
+            class="post-img"
+            src="${
+              post._embedded["wp:featuredmedia"][0].media_details.sizes.full
+                .source_url
+            }"
+            alt="image of ${post.title.rendered}"
+          />
+          <div class="post-all-text-container">
+            <h2 class="post-title">${post.title.rendered}</h2>
+            <div class="post-info-container">
+              <p class="post-author">By ${
+                post._embedded.author[0].name
+              }</p><p>-</p>
+              <p class="post-date">${dateFormatter(post.date)}</p>
+              <p>-</p>
+              <p class="post-category">${
+                post._embedded["wp:term"][0][0].name
+              }</p>
+            </div>
+            <p class="post-text">${getShortText(post.excerpt.rendered)}</p>
+            <p class="posts-readmore">Click to read more</p>
+          </div>
+        </div>
+      </a>`;
+    }
+  } else if (postsContainer) {
     // remove loading message
     postsContainer.innerHTML = "";
 
@@ -214,5 +272,21 @@ if (morePostsButton) {
   morePostsButton.onclick = function () {
     page++;
     getPosts();
+  };
+}
+
+if (nextButton) {
+  nextButton.onclick = function () {
+    const posts = JSON.parse(sessionStorage.getItem("posts"));
+    displayPosts(posts, "next");
+    console.log("next");
+  };
+}
+
+if (prevButton) {
+  prevButton.onclick = function () {
+    const posts = JSON.parse(sessionStorage.getItem("posts"));
+    displayPosts(posts, "prev");
+    console.log("prev");
   };
 }

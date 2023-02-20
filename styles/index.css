@@ -39,11 +39,9 @@
   bottom: 10vh;
   left: 50%;
   transform: translateX(-50%);
-
-
 }
 
-.posts-container {
+.recent-posts-container {
   display: flex;
   flex-direction: column;
   padding-bottom: 20px;
@@ -119,27 +117,52 @@
   display: none;
 }
 
+#prev-button,
+#next-button {
+  display: none;
+}
+
 /* -- DESKTOP -- */
 @media screen and (min-width: 768px) {
+  #prev-button,
+  #next-button {
+    display: block;
+    scale: 1;
+    transition: all 0.2s ease-in-out;
+  }
+  #prev-button:hover {
+    scale: 1.4;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+  }
+  #next-button:hover {
+    scale: 1.4;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+  }
   .hero {
     height: calc(100vh - 120px);
   }
   .hero-button {
     /* top: 65vh; */
   }
-  .posts-container {
+  .recent-posts-container {
+    margin: 0 auto;
     flex-direction: row;
     width: fit-content;
     margin-bottom: 10px;
     gap: 40px;
   }
   .carousel {
-    overflow-x: scroll;
-    padding: 10px;
+    /* overflow-x: scroll; */
+    /* padding: 10px; */
     margin-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
   }
   .post-container {
-    width: 350px;
+    width: 300px;
   }
   .carousel-tip {
     display: block;
