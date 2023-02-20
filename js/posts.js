@@ -22,6 +22,8 @@ const categoryOptions = document.querySelector(".category-options");
 
 const postH1 = document.querySelector(".post-h1");
 
+const searchBar = document.querySelector(".search-bar");
+
 function dateFormatter(string) {
   return string.substring(0, 10);
 }
@@ -254,6 +256,33 @@ function setCategories(posts) {
     });
     AddCategoryOptions();
   }
+}
+
+// function sort by search
+function sortBySearch(search) {
+  const posts = JSON.parse(sessionStorage.getItem("posts"));
+  const filteredPosts = posts.filter((post) => {
+    const text = post.title.rendered
+      .toLowerCase()
+      .includes(search.toLowerCase());
+    if (text === false) {
+      console.log("no posts found");
+      console.log(postsContainer);
+      //TODO: Fix this, innterhtml does not get edited
+      postsContainer.innerHTML = `<h2 class="no-posts">No posts matchin your search "${text}" found </h2>`;
+    }
+    return text;
+  });
+  displayPosts(filteredPosts);
+}
+
+// onchange handlere for search input
+
+if (searchBar) {
+  searchBar.addEventListener("change", (event) => {
+    sortBySearch(event.target.value);
+    console.log(event.target.value);
+  });
 }
 
 // check if posts are in sessionStorage
