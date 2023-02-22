@@ -310,7 +310,8 @@ if (nextButton) {
   nextButton.onclick = function () {
     const posts = JSON.parse(sessionStorage.getItem("posts"));
     displayPosts(posts, "next");
-    console.log("next");
+    prevButton.classList.remove("hidden");
+    nextButton.classList.add("hidden");
   };
 }
 
@@ -318,6 +319,7 @@ if (prevButton) {
   prevButton.onclick = function () {
     const posts = JSON.parse(sessionStorage.getItem("posts"));
     displayPosts(posts, "prev");
-    console.log("prev");
+    nextButton.classList.remove("hidden");
+    prevButton.classList.add("hidden");
   };
 }

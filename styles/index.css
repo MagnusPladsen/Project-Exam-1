@@ -111,6 +111,7 @@
 
 .carousel {
   margin-bottom: 50px;
+  position: relative;
 }
 
 .carousel-tip {
@@ -126,15 +127,22 @@
 @media screen and (min-width: 768px) {
   #prev-button,
   #next-button {
-    display: block;
+    position: absolute;
+    display: flex;
     scale: 1;
     transition: all 0.2s ease-in-out;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
   }
-  #prev-button:hover {
-    scale: 1.4;
-    transition: all 0.2s ease-in-out;
-    cursor: pointer;
+  #prev-button {
+    left: -40px;
   }
+  #next-button {
+    right: -40px;
+  }
+  #prev-button:hover,
   #next-button:hover {
     scale: 1.4;
     transition: all 0.2s ease-in-out;
@@ -142,9 +150,6 @@
   }
   .hero {
     height: calc(100vh - 120px);
-  }
-  .hero-button {
-    /* top: 65vh; */
   }
   .recent-posts-container {
     margin: 0 auto;
