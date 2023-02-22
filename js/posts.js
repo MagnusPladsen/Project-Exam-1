@@ -1,29 +1,21 @@
 let page = 1;
 
 const postsContainer = document.querySelector(".posts-container");
-
 const recentPostsContainer = document.querySelector(".recent-posts-container");
-
-const nextButton = document.querySelector("#next-button");
-
-const prevButton = document.querySelector("#prev-button");
-
-const carouselTips = document.querySelector(".carousel-tip");
-
+const morePostsButtonContainer = document.querySelector(
+  ".see-more-button-container"
+);
 const morePostsButton = document.querySelector(".more-posts-button");
-
+const nextButton = document.querySelector("#next-button");
+const prevButton = document.querySelector("#prev-button");
+const categoryButton = document.querySelectorAll(".category-button");
+const categoryOptions = document.querySelector(".category-options");
+const carouselTips = document.querySelector(".carousel-tip");
 const specificPostContainer = document.querySelector(
   ".specific-post-container"
 );
-
 const specificPostTitle = document.querySelector(".specific-post-title");
-
-const categoryButton = document.querySelectorAll(".category-button");
-
-const categoryOptions = document.querySelector(".category-options");
-
 const postH1 = document.querySelector(".post-h1");
-
 const searchBar = document.querySelector(".search-bar");
 
 function dateFormatter(string) {
@@ -53,7 +45,7 @@ async function getPosts() {
     const response = await fetch(url);
     // if try to get more pages than there are, hide the button
     if (response.ok === false) {
-      morePostsButton.style.display = "none";
+      morePostsButtonContainer.innerHTML = `<p class="no-more-posts">No more posts to show</p>`;
       return;
     } else {
       const posts = await response.json();
