@@ -20,13 +20,13 @@ function checkLength(value, len) {
 function validateForm(event) {
   event.preventDefault();
 
-  if (checkLength(nameInput.value, 0) === true) {
+  if (checkLength(nameInput.value, 1) === true) {
     nameError.style.display = "none";
   } else {
     nameError.style.display = "block";
   }
 
-  if (checkLength(messageInput.value, 0) === true) {
+  if (checkLength(messageInput.value, 10) === true) {
     messageError.style.display = "none";
   } else {
     messageError.style.display = "block";
@@ -39,12 +39,12 @@ function validateForm(event) {
   }
 
   if (
-    checkLength(nameInput.value, 0) === true &&
-    checkLength(messageInput.value, 0) === true &&
+    checkLength(nameInput.value, 1) === true &&
+    checkLength(messageInput.value, 10) === true &&
     validateEmail(emailInput.value) === true
   ) {
     form.innerHTML = `<div class="form-success">
-    <h2>Thank you for your message!</h2>
+    <h2 class="">Thank you for your message!</h2>
     <p>We will get back to you as soon as possible.</p>
     </div>`;
   }

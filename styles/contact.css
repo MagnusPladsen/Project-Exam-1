@@ -33,6 +33,14 @@ textarea {
   margin-left: 2px;
 }
 
+input:focus,
+textarea:focus,
+input:hover,
+textarea:hover {
+  border: 1px solid var(--secondary-color);
+  cursor: pointer;
+}
+
 textarea {
   padding: 20px 20px;
   height: 10em;
@@ -43,6 +51,11 @@ textarea {
   color: red;
   margin: 0 0;
   display: none;
+}
+
+.form-success {
+    color: var(--primary-color);
+    font-size: 14px;
 }
 
 /* -- DESKTOP -- */
