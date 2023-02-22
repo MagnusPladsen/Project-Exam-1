@@ -1,0 +1,58 @@
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+label {
+  font-size: 1.2em;
+  font-family: "Roboto", sans-serif;
+  font-weight: 600;
+  color: var(--primary-color);
+  font-size: 16px;
+}
+
+input,
+textarea {
+  height: 50px;
+  border-radius: 5px;
+  border: 1px solid var(--primary-color);
+  padding: 0 20px;
+  text-align: left;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  color: var(--primary-color);
+  font-size: 16px;
+  background-color: var(--grayGreen-color);
+  margin-left: 2px;
+}
+
+textarea {
+  padding: 20px 20px;
+  height: 10em;
+  margin-bottom: 1.5em;
+}
+
+.error {
+  color: red;
+  margin: 0 0;
+  display: none;
+}
+
+/* -- DESKTOP -- */
+@media screen and (min-width: 768px) {
+  form {
+    width: 50%;
+    margin: 0 auto;
+  }
+  .contact-h1 {
+    width: 50%;
+    margin: 0 auto;
+  }
+}

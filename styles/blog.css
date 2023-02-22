@@ -201,8 +201,8 @@
 @media screen and (min-width: 768px) {
   .button-container {
     flex-direction: row;
-    justify-content: space-between;
-    gap: 40px;
+    /* justify-content: space-between; */
+    gap: 20px;
   }
   .search-bar {
     /* width: 100%; */
@@ -229,6 +229,9 @@
   .sort-button {
     padding: 0px 20px;
     width: 160px;
+  }
+  .sort-button-container {
+    margin-right: 0 !important;
   }
   .sort-options {
     width: 160px;

@@ -1,0 +1,14 @@
+.about, .about-h1 {
+    max-width: 70rem;
+    margin: 0 auto;
+}
+
+.contact-button {
+    margin-top: 50px;
+}
+
+/* -- DESKTOP -- */
+@media screen and (min-width: 768px) {
+
+    
+}

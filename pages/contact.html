@@ -19,10 +19,11 @@
     <link rel="stylesheet" href="../styles/nav.css" />
     <link rel="stylesheet" href="../styles/blog.css" />
     <link rel="stylesheet" href="../styles/footer.css" />
-    <link rel="stylesheet" href="../styles/about.css" />
+    <link rel="stylesheet" href="../styles/contact.css" />
 
     <!---- JS LINKS ---->
     <script src="../js/nav.js" type="module"></script>
+    <script src="../js/contact.js" type="module"></script>
 
     <!-- Hotjar Tracking Code for travela.pladsen.dev -->
     <script>
@@ -69,10 +70,10 @@
               <li class="menu-item">
                 <a href="../pages/blog.html">Blog</a>
               </li>
-              <li class="menu-item nav-active">
+              <li class="menu-item">
                 <a href="../pages/about.html">About</a>
               </li>
-              <li class="menu-item">
+              <li class="menu-item nav-active">
                 <a href="../pages/contact.html">Contact</a>
               </li>
             </ul>
@@ -86,10 +87,10 @@
             <li class="menu-item">
               <a href="../pages/blog.html">Blog</a>
             </li>
-            <li class="menu-item nav-active">
+            <li class="menu-item">
               <a href="../pages/about.html">About</a>
             </li>
-            <li class="menu-item">
+            <li class="menu-item nav-active">
               <a href="../pages/contact.html">Contact</a>
             </li>
           </ul>
@@ -98,45 +99,26 @@
     </nav>
     <main>
       <section>
-        <h1 class="about-h1">About us</h1>
-        <article class="about">
-          <p>
-            Welcome to Travela, a travel blog that aims to inspire and guide
-            travelers of all kinds to explore the world and experience new
-            cultures.
-          </p>
-          <p>
-            I started Travela because I believe that traveling is one of the
-            most incredible things you can do in life. I've always had a passion
-            for exploring new places, meeting new people, and learning about
-            different cultures, and I wanted to create a platform where I could
-            share my experiences and inspire others to do the same.
-          </p>
-          <p>
-            As a traveler, I've had the privilege of visiting some of the most
-            beautiful and fascinating places in the world. From the ancient
-            ruins of Machu Picchu to the bustling streets of Tokyo, I've seen
-            firsthand how travel can broaden your horizons, challenge your
-            assumptions, and enrich your life in countless ways.
-          </p>
-          <p>
-            But I also know that traveling can be daunting, especially if you're
-            new to it. That's why I created Travela as a resource for people of
-            all levels of experience. Whether you're a seasoned globetrotter or
-            a first-time tourist, I want to help you plan your trip, make the
-            most of your time abroad, and come home with memories that will last
-            a lifetime.
-          </p>
-          <p>
-            So, whether you're planning a backpacking trip through Southeast
-            Asia or a luxury safari in Africa, I hope that Travela will be a
-            helpful resource and a source of inspiration for your journey.
-            Thanks for joining us on this adventure!
-          </p>
-        </article>
-        <a href="/pages/contact.html"
-        ><button class="cta contact-button">Contact us</button></a
-      >
+        <h1 class="contact-h1">About us</h1>
+        <form id="contact-form">
+          <div class="input-container">
+            <label for="name">Full name</label>
+            <input type="text" name="name" id="name" />
+          </div>
+          <div class="error" id="name-error">Name is required</div>
+          <div class="input-container">
+            <label for="email">Email address</label>
+            <input type="email" name="email" id="email" />
+          </div>
+          <div class="input-container">
+            <div class="error" id="email-error">Email is required</div>
+            <label for="message">Message</label>
+
+            <textarea name="message" id="message"></textarea>
+          </div>
+          <div class="error" id="message-error">Message is required</div>
+          <button class="cta cta-message">Send message</button>
+        </form>
       </section>
     </main>
     <footer>
