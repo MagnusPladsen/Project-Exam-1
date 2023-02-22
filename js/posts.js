@@ -16,6 +16,8 @@ const specificPostContainer = document.querySelector(
   ".specific-post-container"
 );
 
+const specificPostTitle = document.querySelector(".specific-post-title");
+
 const categoryButton = document.querySelectorAll(".category-button");
 
 const categoryOptions = document.querySelector(".category-options");
@@ -170,7 +172,7 @@ function displayPosts(posts, carouselOption = "none") {
     const postID = new URLSearchParams(window.location.search).get("id");
     // find the post with the id
     const post = posts.find((post) => post.id === parseInt(postID));
-    console.log(post.content);
+    specificPostTitle.innerHTML = "Travela - " + post.title.rendered;
     // display the post
     specificPostContainer.innerHTML = `
     <img
