@@ -4,7 +4,7 @@ nav {
   background-color: var(--grayGreen-color);
   height: 100px;
   padding: 10px 40px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 .nav-content-container {
@@ -32,8 +32,6 @@ nav {
   z-index: 10;
   box-shadow: 0 20px 20px rgba(0, 0, 0, 0.2);
 }
-
-
 
 .menu-list {
   display: flex;
@@ -66,8 +64,15 @@ nav {
   padding-bottom: 5px;
 }
 
-/* -- DESKTOP SMALL -- */
+/* -- TABLET -- */
 @media screen and (min-width: 768px) {
+  .menu-list li {
+    font-size: 30px;
+  }
+}
+
+/* -- DESKTOP -- */
+@media screen and (min-width: 1000px) {
   nav {
     height: 120px;
   }

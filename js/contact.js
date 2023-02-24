@@ -24,18 +24,21 @@ function validateForm(event) {
     nameError.style.display = "none";
   } else {
     nameError.style.display = "block";
+    nameInput.style.border = "1px solid red";
   }
 
   if (checkLength(messageInput.value, 10) === true) {
     messageError.style.display = "none";
   } else {
     messageError.style.display = "block";
+    messageInput.style.border = "1px solid red";
   }
 
   if (validateEmail(emailInput.value) === true) {
     emailError.style.display = "none";
   } else {
     emailError.style.display = "block";
+    emailInput.style.border = "1px solid red";
   }
 
   if (

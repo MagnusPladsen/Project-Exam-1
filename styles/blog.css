@@ -11,8 +11,10 @@
   gap: 20px;
   background-color: var(--grayGreen-color);
   height: 50px;
-  border: 1px solid var(--primary-color);
-  border-radius: 5px;
+  border: 1px solid var(--grayGreen-color);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+  transition: all 0.2s ease-in-out;
 }
 
 .search-bar:focus-within,
@@ -20,6 +22,7 @@
   border: 1px solid var(--secondary-color);
   border-radius: 5px;
   cursor: pointer;
+  box-shadow: 0 8px 10px rgba(0, 0, 0, 0.2);
 }
 
 .search-bar input {
@@ -48,9 +51,11 @@
   width: 100%;
   background-color: var(--grayGreen-color);
   height: 50px;
-  border: 1px solid var(--primary-color);
-  border-radius: 5px;
+  border: 1px solid var(--grayGreen-color);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
   white-space: nowrap;
+  transition: all 0.2s ease-in-out;
 }
 
 .sort-button button {
@@ -68,6 +73,7 @@
   transition: all 0.2s ease-in-out;
   cursor: pointer;
   border: 1px solid var(--secondary-color);
+  box-shadow: 0 8px 10px rgba(0, 0, 0, 0.2);
 }
 
 .sort-button-container:hover .sort-button button {
@@ -111,40 +117,11 @@
 
 .posts-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   padding: 40px 0;
   gap: 60px;
   flex-wrap: wrap;
-}
-
-.post-container {
-  max-width: 340px;
-  height: 400px;
-  position: relative;
-  scale: 1;
-  transition: all 0.2s ease-in-out;
-}
-
-.post-container:hover {
-  transform: scale(1.05);
-  transition: all 0.2s ease-in-out;
-}
-
-.post-title {
-  font-family: "Roboto", sans-serif;
-  font-weight: 500;
-  font-size: 25px;
-  color: var(--secondary-color);
-  text-align: left;
-  margin-bottom: 0;
-  margin-top: 5px;
-}
-
-.post-img {
-  width: 100%;
-  object-fit: cover;
-  border-radius: 5px;
-  height: 60%;
+  justify-content: center;
 }
 
 .specific-post-img {
@@ -153,37 +130,6 @@
   object-fit: cover;
   object-position: bottom;
   border-radius: 5px;
-}
-
-.post-text {
-  margin: 10px 0 5px 0;
-  color: black;
-  font-weight: 500;
-}
-
-.posts-readmore {
-  font-size: 12px;
-  color: var(--primary-color);
-  margin-top: 5px;
-}
-
-.post-info-container {
-  display: flex;
-  gap: 5px;
-  font-family: "Roboto", sans-serif;
-  font-size: 12px;
-  color: var(--primary-color);
-}
-
-.post-info-container p {
-  margin: 0;
-}
-
-.post-all-text-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 5px;
 }
 
 .speicific-post-text-container {
@@ -205,20 +151,22 @@
   margin-top: 50px;
 }
 
+/* -- TABLET -- */
+@media screen and (min-width: 700px) {
+
+}
+
 /* -- DESKTOP -- */
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1000px) {
   .button-container {
     flex-direction: row;
-    gap: 20px;
   }
   .search-bar {
     width: 335px;
   }
   .posts-container {
-    flex-direction: row;
     margin-bottom: 10px;
     gap: 50px;
-    justify-content: start;
     margin-right: 0;
   }
   .post-container {

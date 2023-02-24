@@ -19,10 +19,10 @@ a {
   padding: 0;
 }
 
-p, h2 {
+p,
+h2 {
   font-family: "Nunito", sans-serif;
 }
-
 
 button {
   background: none;
@@ -67,20 +67,20 @@ h1 {
   background-color: white;
   color: var(--secondary-color);
   padding: 15px 30px;
-  border-radius: 40px;
+  border-radius: 3px;
   font-family: "Roboto", sans-serif;
   font-weight: 500;
   font-size: 1.2rem;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
   scale: 1;
   transition: all 0.2s ease-in-out;
-  background-color: var(--grayGreen-color)
+  background-color: var(--grayGreen-color);
 }
 
 .cta:hover {
   background-color: var(--secondary-color);
   color: white;
-  scale: 1.1;
+  scale: 1;
   transition: all 0.2s ease-in-out;
 }
 
@@ -135,9 +135,80 @@ h1 {
   color: var(--secondary-color);
 }
 
+/* -- POST STYLING -- */
+.post-container {
+  max-width: 340px;
+  height: 400px;
+  position: relative;
+  scale: 1;
+  transition: all 0.2s ease-in-out;
+}
+
+.post-container:hover {
+  transform: scale(1.05);
+  transition: all 0.2s ease-in-out;
+}
+
+.post-title {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 25px;
+  color: var(--secondary-color);
+  text-align: left;
+  margin-bottom: 0;
+  margin-top: 5px;
+}
+
+.post-img {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 3px;
+  height: 60%;
+}
+
+.post-container:hover .post-img {
+  filter: brightness(1.1);
+  transition: all 0.2s ease-in-out;
+}
+
+.post-text {
+  margin: 10px 0 5px 0;
+  color: black;
+  font-weight: 500;
+}
+
+.posts-readmore {
+  font-size: 12px;
+  color: var(--primary-color);
+  margin-top: 5px;
+}
+
+.post-info-container {
+  display: flex;
+  gap: 5px;
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  color: var(--primary-color);
+}
+
+.post-info-container p {
+  margin: 0;
+}
+
+.post-all-text-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 5px;
+}
+
 /* -- DESKTOP -- */
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1000px) {
   .logo-container {
     padding-top: 0px;
+  }
+  .post-img {
+    filter: brightness(0.9);
+    transition: all 0.2s ease-in-out;
   }
 }
