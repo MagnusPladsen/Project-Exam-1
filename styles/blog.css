@@ -87,7 +87,8 @@
   top: 52px;
   z-index: 2;
   background-color: var(--grayGreen-color);
-  border: 1px solid var(--primary-color);
+  border: 1px solid var(--secondary-color);
+  box-shadow: 0 8px 10px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
   display: flex;
   flex-direction: column;
@@ -153,7 +154,6 @@
 
 /* -- TABLET -- */
 @media screen and (min-width: 700px) {
-
 }
 
 /* -- DESKTOP -- */
