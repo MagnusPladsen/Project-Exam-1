@@ -7,6 +7,9 @@ const emailError = document.querySelector("#email-error");
 const messageInput = document.querySelector("#message");
 const messageError = document.querySelector("#message-error");
 
+const subjectInput = document.querySelector("#subject");
+const subjectError = document.querySelector("#subject-error");
+
 const form = document.querySelector("#contact-form");
 
 function checkLength(value, len) {
@@ -20,7 +23,7 @@ function checkLength(value, len) {
 function validateForm(event) {
   event.preventDefault();
 
-  if (checkLength(nameInput.value, 1) === true) {
+  if (checkLength(nameInput.value, 5) === true) {
     nameError.style.display = "none";
   } else {
     nameError.style.display = "block";
@@ -40,10 +43,17 @@ function validateForm(event) {
     emailError.style.display = "block";
     emailInput.style.border = "1px solid red";
   }
+  if (checkLength(subjectInput.value, 15) === true) {
+    subjectError.style.display = "none";
+  } else {
+    subjectError.style.display = "block";
+    subjectInput.style.border = "1px solid red";
+  }
 
   if (
     checkLength(nameInput.value, 1) === true &&
     checkLength(messageInput.value, 10) === true &&
+    checkLength(subjectInput.value, 15) === true &&
     validateEmail(emailInput.value) === true
   ) {
     form.innerHTML = `<div class="form-success">

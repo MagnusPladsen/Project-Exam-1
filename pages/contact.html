@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!---- META ---->
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="../images/icons/favicon.png" type="image/png" />
+    <meta name="description" content="Travela blog - Contact us" />
+
+    <!---- FAVICON ---->
+    <link rel="icon" href="images/icons/favicon.png" type="image/png" />
 
     <!---- FONTS ---->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -47,19 +51,21 @@
   <body>
     <nav>
       <div class="nav-content-container">
-        <div class="logo-container">
-          <img
-            class="logo-image"
-            src="../images/icons/logo.svg"
-            alt="Travela logo"
-          />
-          <p class="logo-text">Travela</p>
-        </div>
+        <a href="../index.html">
+          <div class="logo-container">
+            <img
+              class="logo-image"
+              src="../images/icons/logo.svg"
+              alt="Travela logo"
+            />
+            <p class="logo-text">Travela</p>
+          </div>
+        </a>
         <div class="mobile-menu">
           <img
             id="nav-button"
             class="hamburger"
-            src="..//images/icons/hamburger.svg"
+            src="../images/icons/hamburger.svg"
             alt="hamburger icon"
           />
           <div id="drop-down" class="mobile-dropdown dropdown-hidden">
@@ -102,34 +108,51 @@
         <h1 class="contact-h1">Contact us</h1>
         <form id="contact-form">
           <div class="input-container">
-            <label for="name">Full name (Required)</label>
+            <label for="name">Full name</label>
             <input type="text" name="name" id="name" />
           </div>
-          <div class="error" id="name-error">Name is required</div>
+          <div class="error" id="name-error">
+            Name is required and should be more than 5 characters
+          </div>
+
           <div class="input-container">
-            <label for="email">Email address (Required)</label>
+            <label for="email">Email address</label>
             <input type="email" name="email" id="email" />
           </div>
+          <div class="error" id="email-error">Email is required</div>
+
           <div class="input-container">
-            <div class="error" id="email-error">Email is required</div>
-            <label for="message">Message (Minimum 10 characters)</label>
+            <label for="subject">Subject</label>
+            <input type="text" name="subject" id="subject" />
+          </div>
+          <div class="error" id="subject-error">
+            Subject is required and should be more than 15 characters
+          </div>
+
+          <div class="input-container">
+            <label for="message">Message</label>
             <textarea name="message" id="message"></textarea>
           </div>
-          <div class="error" id="message-error">Message is required</div>
+          <div class="error" id="message-error">
+            Message is required and should be more than 25 characters
+          </div>
+
           <button class="cta cta-message">Send message</button>
         </form>
       </section>
     </main>
     <footer>
       <div class="footer-content">
-        <div class="logo-container">
-          <img
-            class="logo-image"
-            src="../images/icons/logo.svg"
-            alt="Travela logo"
-          />
-          <p class="logo-text">Travela</p>
-        </div>
+        <a href="../index.html">
+          <div class="logo-container">
+            <img
+              class="logo-image"
+              src="../images/icons/logo.svg"
+              alt="Travela logo"
+            />
+            <p class="logo-text">Travela</p>
+          </div>
+        </a>
         <div class="footer-text">
           <p>Phone: <span class="hover-secondary">998 87 766</span></p>
           <p>
@@ -138,8 +161,14 @@
               <span class="hover-secondary">contact@travela.com</span></a
             >
           </p>
-          <p>Web: <span class="hover-secondary">www.travela.com</span></p>
+          <p>
+            <a href="https://travela.pladsen.dev"
+              >Web:
+              <span class="hover-secondary">www.travela.pladsen.dev</span></a
+            >
+          </p>
         </div>
+        <div class="copyright-container"><p>&#169; Magnus Pladsen 2023</p></div>
       </div>
     </footer>
   </body>
