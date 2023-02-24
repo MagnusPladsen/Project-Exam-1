@@ -131,6 +131,14 @@ h1 {
   transition: all 0.2s ease-in-out;
 }
 
+.dropdown-hidden {
+  animation: hide 0.15s ease-in-out forwards;
+}
+
+.dropdown-show {
+  animation: show 0.15s ease-in-out forwards;
+}
+
 .selected {
   color: var(--secondary-color);
 }
@@ -203,6 +211,18 @@ h1 {
   gap: 5px;
 }
 
+/* -- MOBILE AND TABLET -- */
+@media screen and (max-width: 999px) {
+  nav {
+    position: fixed;
+    z-index: 50;
+    width: calc(100vw - 80px);
+  }
+  section {
+    padding-top: 140px;
+  }
+}
+
 /* -- DESKTOP -- */
 @media screen and (min-width: 1000px) {
   .logo-container {
@@ -211,5 +231,28 @@ h1 {
   .post-img {
     filter: brightness(0.9);
     transition: all 0.2s ease-in-out;
+  }
+}
+
+/* -- ANIMATIONS -- */
+@keyframes hide {
+  from {
+    opacity: 1;
+    top: 120px;
+  }
+  to {
+    opacity: 0;
+    top: -100%;
+  }
+}
+
+@keyframes show {
+  from {
+    opacity: 0;
+    top: -100%;
+  }
+  to {
+    opacity: 1;
+    top: 120px;
   }
 }
