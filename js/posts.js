@@ -259,15 +259,14 @@ function sortBySearch(search) {
     const text = post.title.rendered
       .toLowerCase()
       .includes(search.toLowerCase());
-    if (text === false) {
-      console.log("no posts found");
-      console.log(postsContainer);
-      //TODO: Fix this, innterhtml does not get edited
-      postsContainer.innerHTML = `<h2 class="no-posts">No posts matchin your search "${text}" found </h2>`;
-    }
     return text;
   });
-  displayPosts(filteredPosts);
+  console.log(filteredPosts);
+  if (filteredPosts.length === 0) {
+    postsContainer.innerHTML = `<h2 class="no-posts">No posts matching your search "${search}" found </h2>`;
+  } else {
+    displayPosts(filteredPosts);
+  }
 }
 
 // onchange handlere for search input
@@ -275,7 +274,6 @@ function sortBySearch(search) {
 if (searchBar) {
   searchBar.addEventListener("change", (event) => {
     sortBySearch(event.target.value);
-    console.log(event.target.value);
   });
 }
 

@@ -152,6 +152,14 @@
   margin-top: 50px;
 }
 
+.no-posts {
+  margin: 0 auto;
+  color: var(--primary-color);
+  font-style: italic;
+  font-size: 12px;
+  margin-top: 50px;
+}
+
 /* -- DESKTOP -- */
 @media screen and (min-width: 1000px) {
   .button-container {
