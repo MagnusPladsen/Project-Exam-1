@@ -16,7 +16,7 @@
 
 .hero-text-container {
   position: absolute;
-  bottom: 18vh;
+  bottom: 25vh;
 }
 
 .hero-heading {
@@ -35,7 +35,7 @@
 
 .hero-button {
   position: absolute;
-  bottom: 10vh;
+  bottom: 18vh;
   left: 50%;
   transform: translateX(-50%);
 }
@@ -47,7 +47,6 @@
   gap: 60px;
   flex-wrap: wrap;
   justify-content: center;
-  
 }
 
 .carousel {
@@ -117,5 +116,11 @@ section {
     font-size: 12px;
     text-align: center;
     margin-bottom: 50px;
+  }
+  .hero-text-container {
+    bottom: 18vh;
+  }
+  .hero-button {
+    bottom: 10vh;
   }
 }
