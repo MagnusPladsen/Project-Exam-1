@@ -2,7 +2,7 @@
 
 :root {
   --primary-color: #6d6611;
-  --secondary-color: #bd5942;
+  --secondary-color: #b95741;
   --grayGreen-color: #fffcf5;
 }
 
@@ -117,7 +117,7 @@ h1 {
 }
 
 .error {
-  color: red;
+  color: #eb0000;
   text-align: center;
   margin-bottom: 200px;
 }
