@@ -15,6 +15,10 @@ const specificPostContainer = document.querySelector(
   ".specific-post-container"
 );
 const specificPostTitle = document.querySelector(".specific-post-title");
+const specificPostImage = document.querySelector("#specific-post-img");
+
+const modal = document.querySelector("#modal");
+const modalImage = document.querySelector("#modal-image");
 const postH1 = document.querySelector(".post-h1");
 const searchBar = document.querySelector(".search-bar");
 
@@ -168,7 +172,7 @@ function displayPosts(posts, carouselOption = "none") {
     // display the post
     specificPostContainer.innerHTML = `
     <img
-      class="specific-post-img"
+      class="specific-post-img" id=" specific-post-img"
       src="${
         post._embedded["wp:featuredmedia"][0].media_details.sizes.full
           .source_url
@@ -269,8 +273,7 @@ function sortBySearch(search) {
   }
 }
 
-// onchange handlere for search input
-
+// onchange handler for search input
 if (searchBar) {
   searchBar.addEventListener("change", (event) => {
     sortBySearch(event.target.value);
@@ -311,5 +314,13 @@ if (prevButton) {
     displayPosts(posts, "prev");
     nextButton.classList.remove("hidden");
     prevButton.classList.add("hidden");
+  };
+}
+
+if (specificPostImage) {
+  console.log(specificPostImage);
+  specificPostImage.onclick = function () {
+    modalImage.src = specificPostImage.src;
+    modal.style.display = "block";
   };
 }

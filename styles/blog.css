@@ -106,7 +106,7 @@
 .sort-button button,
 .sort-options,
 .search-input {
-  font-family: 'Quicksand', sans-serif;
+  font-family: "Quicksand", sans-serif;
   font-weight: 400;
   color: var(--primary-color);
   font-size: 16px;
@@ -123,7 +123,7 @@
 
 .specific-post-img {
   width: 100%;
-  height: 400px;
+  height: 200px;
   object-fit: cover;
   object-position: bottom;
   border-radius: 5px;
@@ -154,6 +154,29 @@
   font-style: italic;
   font-size: 12px;
   margin-top: 50px;
+}
+
+/* -- MODAL -- */
+.modal {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: none;
+}
+
+.modal {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: none;
 }
 
 /* -- DESKTOP -- */
@@ -190,5 +213,8 @@
   .sort-options {
     width: 160px;
     padding: 20px 20px !important;
+  }
+  .specific-post-img {
+    height: 400px;
   }
 }
