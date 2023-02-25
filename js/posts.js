@@ -93,7 +93,7 @@ function displayPosts(posts, carouselOption = "none") {
     for (postCounter; postCounter <= postStopper; postCounter++) {
       const post = posts[postCounter];
       recentPostsContainer.innerHTML += `
-      <a href="post.html?id=${post.id}" class="post-link">
+      <a href="/pages/post.html?id=${post.id}" class="post-link">
         <div class="post-container">
   
           <img

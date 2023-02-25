@@ -94,7 +94,7 @@ section {
     cursor: pointer;
   }
   .hero {
-    height: calc(100vh - 120px);
+    height: calc(100vh - 94.5px);
   }
   .recent-posts-container {
     margin: 0 auto;

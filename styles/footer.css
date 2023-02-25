@@ -17,7 +17,8 @@ footer .logo-container {
   margin: 0 auto;
 }
 
-.footer-text, .copyright-container p {
+.footer-text,
+.copyright-container p {
   font-size: 18px;
   color: var(--primary-color);
 }
@@ -38,6 +39,7 @@ footer .logo-container {
   text-align: center;
   opacity: 0.3;
   white-space: nowrap;
+  font-weight: 100;
 }
 
 /* -- DESKTOP -- */
@@ -46,6 +48,6 @@ footer .logo-container {
     padding: 50px 50px 40px;
   }
   .footer-text p {
-    margin: 10  px 0;
+    margin: 10 px 0;
   }
 }

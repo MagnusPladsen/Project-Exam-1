@@ -42,7 +42,7 @@ nav {
   list-style: none;
   font-family: 'Quicksand', sans-serif;
   font-weight: 400;
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: var(--primary-color);
 }
 
@@ -86,9 +86,6 @@ nav {
 
 /* -- DESKTOP -- */
 @media screen and (min-width: 1000px) {
-  nav {
-    height: 120px;
-  }
   .desktop-menu {
     display: block;
   }
