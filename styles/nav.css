@@ -2,7 +2,7 @@
 
 nav {
   background-color: var(--grayGreen-color);
-  height: 100px;
+  height: auto;
   padding: 10px 40px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
@@ -23,13 +23,12 @@ nav {
 .mobile-dropdown {
   position: absolute;
   position: fixed;
-  top: 120px;
+  top: 106.5px;
   left: 0;
   width: 100%;
-  height: calc(100vh - 120px);
-  border-top: 1px solid var(--primary-color);
-  border-bottom: 1px solid var(--primary-color);
-  background-color: white;
+  height: calc(100vh - 100px);
+  background-color: var(--grayGreen-color
+  );
   z-index: 20;
   box-shadow: 0 20px 20px rgba(0, 0, 0, 0.2);
 }
@@ -41,8 +40,8 @@ nav {
   padding-top: 15vh;
   padding-left: 0;
   list-style: none;
-  font-family: "Roboto", sans-serif;
-  font-weight: 500;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 400;
   font-size: 1.2rem;
   color: var(--primary-color);
 }

@@ -98,10 +98,6 @@
   width: 100%;
 }
 
-.option {
-  font-weight: 500;
-}
-
 .option:hover {
   color: var(--secondary-color);
   cursor: pointer;
@@ -110,8 +106,8 @@
 .sort-button button,
 .sort-options,
 .search-input {
-  font-family: "Roboto", sans-serif;
-  font-weight: 600;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 400;
   color: var(--primary-color);
   font-size: 16px;
 }
