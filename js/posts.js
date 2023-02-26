@@ -15,8 +15,6 @@ const specificPostContainer = document.querySelector(
   ".specific-post-container"
 );
 const specificPostTitle = document.querySelector(".specific-post-title");
-const specificPostImage = document.querySelector("#specific-post-img");
-
 const modal = document.querySelector("#modal");
 const modalImage = document.querySelector("#modal-image");
 const postH1 = document.querySelector(".post-h1");
@@ -172,7 +170,7 @@ function displayPosts(posts, carouselOption = "none") {
     // display the post
     specificPostContainer.innerHTML = `
     <img
-      class="specific-post-img" id=" specific-post-img"
+      class="specific-post-img" id="specific-post-img"
       src="${
         post._embedded["wp:featuredmedia"][0].media_details.sizes.full
           .source_url
@@ -317,10 +315,15 @@ if (prevButton) {
   };
 }
 
-if (specificPostImage) {
-  console.log(specificPostImage);
+if (specificPostContainer) {
+  const specificPostImage = document.querySelector(".specific-post-img");
   specificPostImage.onclick = function () {
     modalImage.src = specificPostImage.src;
     modal.style.display = "block";
   };
+  modal.addEventListener("click", (event) => {
+    if (event.target === modal) {
+      modal.style.display = "none";
+    }
+  });
 }

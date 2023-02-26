@@ -1,16 +1,29 @@
-const nameInput = document.querySelector("#name");
+const contactURL =
+  "https://travela.magnuspladsen.no/wp-json/contact-form-7/v1/contact-forms/96/feedback";
+
+const nameInput = document.querySelector("#your-name");
 const nameError = document.querySelector("#name-error");
 
-const emailInput = document.querySelector("#email");
+const emailInput = document.querySelector("#your-email");
 const emailError = document.querySelector("#email-error");
 
-const messageInput = document.querySelector("#message");
+const messageInput = document.querySelector("#your-message");
 const messageError = document.querySelector("#message-error");
 
-const subjectInput = document.querySelector("#subject");
+const subjectInput = document.querySelector("#your-subject");
 const subjectError = document.querySelector("#subject-error");
 
 const form = document.querySelector("#contact-form");
+
+function postMessageToAPI(data) {
+  fetch(contactURL, {
+    method: "POST",
+    body: data,
+  })
+    .then((response) => response.json())
+    .then((json) => console.log(json))
+    .catch((error) => console.log(error));
+}
 
 function checkLength(value, len) {
   if (value.trim().length > len) {
@@ -56,6 +69,7 @@ function validateForm(event) {
     checkLength(subjectInput.value, 15) === true &&
     validateEmail(emailInput.value) === true
   ) {
+    postMessageToAPI(new FormData(form));
     form.innerHTML = `<div class="form-success">
     <h2 class="">Thank you for your message!</h2>
     <p>We will get back to you as soon as possible.</p>

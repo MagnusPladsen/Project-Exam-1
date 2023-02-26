@@ -94,7 +94,6 @@
   flex-direction: column;
   gap: 20px;
   padding: 20px 20px;
-  padding-right: 30px !important;
   width: 100%;
 }
 
@@ -168,15 +167,24 @@
   display: none;
 }
 
-.modal {
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
-  display: none;
+.modal-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 90%;
+  max-height: 90%;
+}
+
+.modal-text {
+  position: absolute;
+  bottom: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  white-space: nowrap;
+  font-weight: 400;
+  text-align: center;
 }
 
 /* -- DESKTOP -- */
@@ -216,5 +224,8 @@
   }
   .specific-post-img {
     height: 400px;
+  }
+  .modal-text {
+    bottom: 20px;
   }
 }
