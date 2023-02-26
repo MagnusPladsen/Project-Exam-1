@@ -1,30 +1,27 @@
+// url to the contact form API
 const contactURL =
   "https://travela.magnuspladsen.no/wp-json/contact-form-7/v1/contact-forms/96/feedback";
 
+// Selecting the form elements
 const nameInput = document.querySelector("#your-name");
 const nameError = document.querySelector("#name-error");
-
 const emailInput = document.querySelector("#your-email");
 const emailError = document.querySelector("#email-error");
-
 const messageInput = document.querySelector("#your-message");
 const messageError = document.querySelector("#message-error");
-
 const subjectInput = document.querySelector("#your-subject");
 const subjectError = document.querySelector("#subject-error");
-
 const form = document.querySelector("#contact-form");
 
+// Function to post the form data to the API
 function postMessageToAPI(data) {
   fetch(contactURL, {
     method: "POST",
     body: data,
-  })
-    .then((response) => response.json())
-    .then((json) => console.log(json))
-    .catch((error) => console.log(error));
+  });
 }
 
+// Function to check lenght of input
 function checkLength(value, len) {
   if (value.trim().length > len) {
     return true;
@@ -33,6 +30,14 @@ function checkLength(value, len) {
   }
 }
 
+// Function to validate email
+function validateEmail(email) {
+  const regEx = /\S+@\S+\.\S+/;
+  const patternMatches = regEx.test(email);
+  return patternMatches;
+}
+
+// Function to validate the form
 function validateForm(event) {
   event.preventDefault();
 
@@ -75,12 +80,6 @@ function validateForm(event) {
     <p>We will get back to you as soon as possible.</p>
     </div>`;
   }
-}
-
-function validateEmail(email) {
-  const regEx = /\S+@\S+\.\S+/;
-  const patternMatches = regEx.test(email);
-  return patternMatches;
 }
 
 form.addEventListener("submit", validateForm);

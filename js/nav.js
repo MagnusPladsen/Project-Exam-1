@@ -1,6 +1,7 @@
 const navButton = document.querySelector("#nav-button");
 const dropDown = document.querySelector("#drop-down");
 
+// nav dropdown menu toggle on click
 if (navButton) {
   navButton.addEventListener("click", () => {
     if (dropDown.classList.contains("dropdown-hidden")) {

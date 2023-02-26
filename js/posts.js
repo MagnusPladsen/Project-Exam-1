@@ -1,5 +1,7 @@
+// page variable is used to keep track of which page of posts to get from the API
 let page = 1;
 
+// const variables
 const postsContainer = document.querySelector(".posts-container");
 const recentPostsContainer = document.querySelector(".recent-posts-container");
 const morePostsButtonContainer = document.querySelector(
@@ -20,10 +22,12 @@ const modalImage = document.querySelector("#modal-image");
 const postH1 = document.querySelector(".post-h1");
 const searchBar = document.querySelector(".search-bar");
 
+// format date to proper format
 function dateFormatter(string) {
   return string.substring(0, 10);
 }
 
+// get short text from excerpt
 function getShortText(string) {
   const newString = removeTags(string);
   return newString.substring(0, 110) + "...";
@@ -41,6 +45,7 @@ if (postsContainer) {
   specificPostContainer.innerHTML = `<img class="loading" src="/images/gifs/loading-spinner.gif" alt="loading" />`;
 }
 
+// get posts from API
 async function getPosts() {
   try {
     const url = `https://travela.magnuspladsen.no/wp-json/wp/v2/posts?page=${page}&_embed`;
@@ -192,6 +197,7 @@ function displayPosts(posts, carouselOption = "none") {
   }
 }
 
+// sort posts by category
 function sortByCategory(posts, category) {
   if (category === "All") {
     displayPosts(posts);
@@ -204,6 +210,7 @@ function sortByCategory(posts, category) {
   }
 }
 
+// add event listeners to category buttons
 function AddCategoryOptions() {
   if (categoryButton) {
     categoryButton.forEach((button) => {
@@ -226,6 +233,7 @@ function AddCategoryOptions() {
   }
 }
 
+// get categories from posts
 function setCategories(posts) {
   if (categoryOptions) {
     categoryOptions.innerHTML = "";
@@ -297,6 +305,7 @@ if (morePostsButton) {
   };
 }
 
+// carousel functionality, next button
 if (nextButton) {
   nextButton.onclick = function () {
     const posts = JSON.parse(sessionStorage.getItem("posts"));
@@ -306,6 +315,7 @@ if (nextButton) {
   };
 }
 
+// carousel functionality, prev button
 if (prevButton) {
   prevButton.onclick = function () {
     const posts = JSON.parse(sessionStorage.getItem("posts"));
@@ -315,6 +325,7 @@ if (prevButton) {
   };
 }
 
+// modal functionality on specific post page
 if (specificPostContainer) {
   const specificPostImage = document.querySelector(".specific-post-img");
   specificPostImage.onclick = function () {
