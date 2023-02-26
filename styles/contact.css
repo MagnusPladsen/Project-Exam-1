@@ -22,7 +22,7 @@ input,
 textarea {
   height: 50px;
   border-radius: 5px;
-  border: 1px solid var(--grayGreen-color);
+  border: 0.1px solid var(--secondary-color);
   box-shadow: inset 0 2px 4px 0 rgb(0, 0, 0, 0.1);
   padding: 0 20px;
   text-align: left;
