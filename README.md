@@ -31,8 +31,8 @@ git clone git@github.com:Noroff-FEU-Assignments/project-exam-1-MagnusPladsen.git
 #### Running
 
 To run the app, open up the "index.html" file in your browser of choice.
-
-
+</br>
+</br>
 ## Feedback from teacher
 ### Grade	A
 </br>
