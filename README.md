@@ -36,6 +36,7 @@ To run the app, open up the "index.html" file in your browser of choice.
 ## Feedback from teacher
 ### Grade	A
 </br>
+
 #### Appealing design
 Masters relevant tools, techniques and expressions for developing dynamic web solutions in accordance with guidelines for universal design </br>
 Maximum score 3	</br></br>
